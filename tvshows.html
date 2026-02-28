@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Shows Tier List</title>
+    <style>
+        body { font-family: Arial, sans-serif; color: #e8e6e3; background: #1e2122; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: auto; }
+        h1, h2 { text-align: center; }
+        .tier { margin-bottom: 20px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 200px);
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: #181a1b;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 200px;
+            cursor: pointer;           /* makes the whole card look clickable */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .poster-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            overflow: hidden;
+        }
+        .poster-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-content { padding: 15px; text-align: center; }
+        .card-title { margin: 0 0 10px; font-size: 1.2em; }
+        .card-rating { margin: 0 0 10px; color: #ffd700; }
+        .btn { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        .btn:hover { background: #0056b3; }
+        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background: rgba(0,0,0,0.5); }
+        .modal-content { background: #181a1b; color: #e8e6e3; margin: 15% auto; padding: 20px; border-radius: 8px; width: 80%; max-width: 600px; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close:hover { color: black; }
+        nav { text-align: center; margin-bottom: 20px; }
+        nav a { margin: 0 10px; text-decoration: none; color: #007bff; }
+        nav a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: repeat(auto-fit, minmax(150px, 200px)); justify-content: center; }
+            .card { max-width: 200px; }
+            body { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav>
+        <a href="movies.html">Movies</a>
+        <a href="tvshows.html">TV Shows</a>
+        <a href="anime.html">Anime</a>
+    </nav>
+    <h1>TV Shows Tier List</h1>
+
+    <div class="tier">
+        <h2>S-Tier (9-10/10)</h2>
+        <div class="grid" id="s-tier"></div>
+    </div>
+
+    <div class="tier">
+        <h2>A-Tier (7-8/10)</h2>
+        <div class="grid" id="a-tier"></div>
+    </div>
+
+    <div class="tier">
+        <h2>B-Tier (5-6/10)</h2>
+        <div class="grid" id="b-tier"></div>
+    </div>
+    
+    <div class="tier">
+        <h2>C-Tier (3-4/10)</h2>
+        <div class="grid" id="c-tier"></div>
+    </div>
+    
+    <div class="tier">
+        <h2>D-Tier (1-2/10)</h2>
+        <div class="grid" id="d-tier"></div>
+    </div>
+    
+    <div class="tier">
+        <h2>F-Tier (0/10)</h2>
+        <div class="grid" id="f-tier"></div>
+    </div>
+</div>
+
+<div id="reviewModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalReview"></p>
+    </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+    // Filter data for this category
+    const categoryData = mediaData.filter(item => item.category === "tv");
+
+function createCard(item) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+        <div class="poster-container">
+            <img src="${item.poster}" alt="${item.title} Poster">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">${item.title}</h3>
+            <p class="card-rating">${item.rating}</p>
+        </div>
+    `;
+    
+    // Make the entire card open the review
+    card.onclick = () => openModal(item.title, item.review);
+    
+    return card;
+}
+
+    categoryData.forEach(item => {
+        const tierGrid = document.getElementById(`${item.tier}-tier`);
+        if (tierGrid) {
+            tierGrid.appendChild(createCard(item));
+        }
+    });
+
+    const modal = document.getElementById('reviewModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalReview = document.getElementById('modalReview');
+    const closeBtn = document.querySelector('.close');
+
+    function openModal(title, review) {
+        modalTitle.textContent = title + ' Review';
+        modalReview.innerHTML = review;
+        modal.style.display = 'block';
+    }
+
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = (event) => { if (event.target === modal) modal.style.display = 'none'; };
+</script>
+</body>
+</html>
