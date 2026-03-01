@@ -64,6 +64,11 @@ function sortCategoryData(data) {
 function populateCards() {
     if (!window.categoryData) return;
 
+    const count = document.getElementById('entry-count');
+    if (count) {
+        count.querySelector('strong').textContent = window.categoryData.length;
+    }
+
     const sortedData = sortCategoryData(window.categoryData);
 
     console.log("Sorted order:", sortedData.map(i => i.title));
