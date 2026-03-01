@@ -71,7 +71,6 @@ function populateCards() {
 
     const sortedData = sortCategoryData(window.categoryData);
 
-    console.log("Sorted order:", sortedData.map(i => i.title));
     sortedData.forEach(item => {
         const tierGrid = document.getElementById(`${item.tier}-tier`);
         if (tierGrid) tierGrid.appendChild(createCard(item));
