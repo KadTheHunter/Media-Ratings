@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal ratings and reviews for Movies, TV shows, and Anime.">
+    <title>Kad's Media Ratings</title>
+    <link rel="stylesheet" href="main.min.css"/>
+    <style>
+        :root {
+            --accent-glow: rgba(100, 181, 246, 0.30);
+        }
+    </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+</head>
+<body>
+<!-- Improved Nav -->
+<nav class="main-nav">
+    <a href="index.html" class="nav-link nav-home active">🏠 Home</a>
+    <a href="movies.html" class="nav-link nav-movies">🎥 Movies</a>
+    <a href="tvshows.html" class="nav-link nav-tv">📺 TV Shows</a>
+    <a href="anime.html" class="nav-link nav-anime">🌸 Anime</a>
+</nav>
+
+<div class="container" style="text-align:center; padding-top: 3rem;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Kad's Media Ratings</h1>
+    <p style="font-size: 1.3rem; color: #8b949e; max-width: 700px; margin: 0 auto 4rem;">
+        Personal tier lists with ratings and short reviews
+    </p>
+    <div class="purpose-section">
+        <p>
+            I often find myself stuck on a piece of media after finishing it; I created this site as a way to help me form my thoughts and opinions into something both tangible and cohesive, almost like Dumbledore's Pensieve in Harry Potter.
+        </p>
+        <p>
+            All entries are rated according to my personal enjoyment, not by any objective definition of "quality". Entries are sorted within each tier first by Rating (highest first), then hidden Weight (lowest first), and finally Watch Date (newest first).
+        </p>
+    </div>
+
+    <div class="home-grid">
+        <!-- Movies Card -->
+        <a href="movies.html" class="category-card category-link" style="--accent-glow: rgba(255, 223, 128, 0.35);">
+            <div class="icon">🎥</div>
+            <h2>Movies</h2>
+            <p>Cinematic masterpieces, blockbusters, and hidden gems</p>
+            <div class="enter">Browse Movies →</div>
+        </a>
+
+        <!-- TV Shows Card -->
+        <a href="tvshows.html" class="category-card category-link" style="--accent-glow: rgba(173, 255, 173, 0.35);">
+            <div class="icon">📺</div>
+            <h2>TV Shows</h2>
+            <p>Binge-worthy series and long-form storytelling</p>
+            <div class="enter">Browse TV Shows →</div>
+        </a>
+
+        <!-- Anime Card -->
+        <a href="anime.html" class="category-card category-link" style="--accent-glow: rgba(255, 182, 193, 0.35);">
+            <div class="icon">🌸</div>
+            <h2>Anime</h2>
+            <p>Japanese animation, epic stories, and beautiful art</p>
+            <div class="enter">Browse Anime →</div>
+        </a>
+    </div>
+</div>
+
+<script src="card.js"></script>
+</body>
+</html>
