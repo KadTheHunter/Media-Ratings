@@ -10,6 +10,7 @@
             --accent-glow: rgba(255, 223, 128, 0.35);
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.1/dist/js-yaml.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -55,54 +56,21 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2 id="modalTitle"></h2>
+        <hr>
         <p id="modalReview"></p>
     </div>
 </div>
 
-<script src="data.js"></script>
 <script>
-    // Filter data for this category
-    const categoryData = mediaData.filter(item => item.category === "movie");
-
-function createCard(item) {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-        <div class="poster-container">
-            <img src="${item.poster}" alt="${item.title} Poster">
-        </div>
-        <div class="card-content">
-            <h3 class="card-title">${item.title}</h3>
-            <p class="card-rating">${item.rating}</p>
-        </div>
-    `;
-    
-    // Make the entire card open the review
-    card.onclick = () => openModal(item.title, item.review);
-    
-    return card;
-}
-
-    categoryData.forEach(item => {
-        const tierGrid = document.getElementById(`${item.tier}-tier`);
-        if (tierGrid) {
-            tierGrid.appendChild(createCard(item));
-        }
-    });
-
-    const modal = document.getElementById('reviewModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalReview = document.getElementById('modalReview');
-    const closeBtn = document.querySelector('.close');
-
-    function openModal(title, review) {
-        modalTitle.textContent = title + ' Review';
-        modalReview.textContent = review;
-        modal.style.display = 'block';
-    }
-
-    closeBtn.onclick = () => modal.style.display = 'none';
-    window.onclick = (event) => { if (event.target === modal) modal.style.display = 'none'; };
+    fetch('data.yml')
+        .then(r => r.text())
+        .then(text => {
+            const allData = jsyaml.load(text);
+            window.categoryData = allData.movies;
+            populateCards();
+        })
+        .catch(err => console.error("YAML load failed:", err));
 </script>
+<script src="card.js"></script>
 </body>
 </html>
