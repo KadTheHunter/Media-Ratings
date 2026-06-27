@@ -1,7 +1,6 @@
 import os
 import re
 import requests
-import difflib
 from dotenv import load_dotenv
 from ruamel.yaml import YAML
 from ruamel.yaml.scalarstring import LiteralScalarString
@@ -31,14 +30,6 @@ yaml.sequence_dash_offset = 2
 # ================
 # HELPER FUNCTIONS
 # ================
-def is_match(title1, title2):
-    t1 = title1.lower().strip()
-    t2 = title2.lower().strip()
-    if t1 == t2: return True
-    ratio = difflib.SequenceMatcher(None, t1, t2).ratio()
-    return ratio >= 0.75
-
-
 def get_category_from_path(path):
     if not path: return "tv"
     path_lower = path.lower()
@@ -112,10 +103,10 @@ def main():
     print("Loading existing data.yml...")
     data = load_data_yml()
 
-    existing_titles = []
+    existing_titles = set()
     for category in ["movies", "tv", "anime"]:
         for item in data[category]:
-            existing_titles.append(item.get("title", ""))
+            existing_titles.add(item.get("title", "").lower().strip())
 
     print("Fetching items from Jellyfin...")
     items = get_jellyfin_items()
@@ -124,13 +115,14 @@ def main():
 
     for item in items:
         jellyfin_title = item.get("Name")
-        if not jellyfin_title: continue
+        if not jellyfin_title:
+            continue
 
-        is_duplicate = any(is_match(jellyfin_title, ext) for ext in existing_titles)
-        if is_duplicate: continue
+        title_check = jellyfin_title.lower().strip()
+        if title_check in existing_titles:
+            continue
 
         category = get_category_from_path(item.get("Path", ""))
-
         poster_url = "assets/images/no-poster.svg"
 
         new_entry = {
@@ -143,7 +135,7 @@ def main():
         }
 
         data[category].append(new_entry)
-        existing_titles.append(jellyfin_title)
+        existing_titles.add(title_check)
         added_count += 1
         print(f"Added: {jellyfin_title} to {category}")
 
