@@ -62,8 +62,14 @@ h1, h2 {
     overflow: hidden;
     width: 100%;
     max-width: 200px;
-    cursor: pointer;           /* makes the whole card look clickable */
+    cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
+}
+.card img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    background-color: #333;
 }
 .card:hover {
     transform: translateY(-4px);
@@ -254,6 +260,23 @@ h1, h2 {
     padding: 1rem;
     font-weight: bold;
     margin-top: auto;
+}
+
+#unranked-header {
+    cursor: pointer;
+    user-select: none;
+}
+#unranked-tier {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* The hidden state */
+#unranked-tier.collapsed {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
 }
 
 @media (max-width: 768px) {

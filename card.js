@@ -60,6 +60,35 @@ function sortCategoryData(data) {
     });
 }
 
+// ==================== COLLAPSIBLE UNRANKED ====================
+function setupUnrankedToggle() {
+    const header = document.getElementById('unranked-header');
+    const grid = document.getElementById('unranked-tier');
+
+    if (!header || !grid) return;
+
+    header.addEventListener('click', function() {
+        const isCollapsed = grid.classList.contains('collapsed');
+
+        if (isCollapsed) {
+            // --- OPENING ---
+            grid.style.display = 'grid';
+            grid.classList.remove('collapsed');
+            header.textContent = header.textContent.replace('▶', '▼');
+        } else {
+            // --- CLOSING ---
+            grid.classList.add('collapsed');
+            header.textContent = header.textContent.replace('▼', '▶');
+
+            setTimeout(() => {
+                if (grid.classList.contains('collapsed')) {
+                    grid.style.display = 'none';
+                }
+            }, 400);
+        }
+    });
+}
+
 // ==================== POPULATE CARDS ====================
 function populateCards() {
     if (!window.categoryData) return;
@@ -75,6 +104,8 @@ function populateCards() {
         const tierGrid = document.getElementById(`${item.tier}-tier`);
         if (tierGrid) tierGrid.appendChild(createCard(item));
     });
+
+    setupUnrankedToggle();
 }
 
 // ==================== MODAL ====================
