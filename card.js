@@ -22,7 +22,7 @@ function createCard(item) {
 
     card.innerHTML = `
         <div class="poster-container">
-            <img src="${item.poster}" alt="${item.title} Poster">
+            <img src="${item.poster}" loading=lazy alt="${item.title} Poster">
         </div>
         <div class="card-content">
             <h3 class="card-title">${item.title}</h3>
