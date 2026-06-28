@@ -89,6 +89,20 @@ function setupUnrankedToggle() {
     });
 }
 
+// ==================== SEARCH BAR ====================
+function setupSearch() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        document.querySelectorAll('.card').forEach(card => {
+            const title = card.querySelector('.card-title').textContent.toLowerCase();
+            card.style.display = title.includes(searchTerm) ? '' : 'none';
+        });
+    });
+}
+
 // ==================== POPULATE CARDS ====================
 function populateCards() {
     if (!window.categoryData) return;
@@ -112,6 +126,7 @@ function populateCards() {
     });
 
     setupUnrankedToggle();
+    setupSearch();
 }
 
 // ==================== MODAL ====================
