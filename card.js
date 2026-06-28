@@ -105,7 +105,11 @@ function setupSearch() {
 
 // ==================== POPULATE CARDS ====================
 function populateCards() {
-    if (!window.categoryData) return;
+    if (!window.categoryData) {
+        console.error('Failed to load category data. Check that data.yml exists and is valid.');
+        return;
+    }
+
     const totalCount = document.getElementById('total-count');
     const libraryCount = document.getElementById('library-count');
 
