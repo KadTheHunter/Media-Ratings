@@ -8959,21 +8959,13 @@ tv:
     watched: ''
 anime:
 
-  - title: 7 Seeds
+  - title: 7Seeds
     rating: "★★★★☆ (9.5/10)"
     review: |
       TBA
     poster: https://artworks.thetvdb.com/banners/posters/5c40fe3372cae.jpg
     tier: s
     watched: ""
-
-  - title: 7Seeds
-    rating: ☆☆☆☆☆ (0/10)
-    review: |
-      TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
-    watched: ''
 
   - title: 91 Days
     rating: ☆☆☆☆☆ (0/10)
