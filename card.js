@@ -92,10 +92,16 @@ function setupUnrankedToggle() {
 // ==================== POPULATE CARDS ====================
 function populateCards() {
     if (!window.categoryData) return;
+    const totalCount = document.getElementById('total-count');
+    const libraryCount = document.getElementById('library-count');
 
-    const count = document.getElementById('entry-count');
-    if (count) {
-        count.querySelector('strong').textContent = window.categoryData.length;
+    if (totalCount) {
+        totalCount.textContent = window.categoryData.length;
+    }
+
+    if (libraryCount) {
+        const countableItems = window.categoryData.filter(item => item.count !== false);
+        libraryCount.textContent = countableItems.length;
     }
 
     const sortedData = sortCategoryData(window.categoryData);
