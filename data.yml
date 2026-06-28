@@ -9248,11 +9248,11 @@ anime:
     watched: ''
 
   - title: Psychic Detective Yakumo
-    rating: ☆☆☆☆☆ (0/10)
+    rating: ★★★★☆ (8.4/10)
     review: |
       TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+    poster: https://artworks.thetvdb.com/banners/posters/193841-3.jpg
+    tier: a
     watched: ''
 
   - title: 'Rick and Morty: The Anime'
