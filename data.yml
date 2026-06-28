@@ -9296,11 +9296,11 @@ anime:
     watched: ''
 
   - title: SPY x FAMILY
-    rating: ☆☆☆☆☆ (0/10)
+    rating: ★★★★☆ (9.4/10)
     review: |
       TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+    poster: https://artworks.thetvdb.com/banners/v4/series/405920/posters/61c9e4093167d.jpg
+    tier: s
     watched: ''
 
   - title: 'Star Wars: Visions'
