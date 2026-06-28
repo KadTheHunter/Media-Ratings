@@ -224,14 +224,6 @@ movies:
     tier: unranked
     watched: ''
 
-  - title: All in the Family
-    rating: ☆☆☆☆☆ (0/10)
-    review: |
-      TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
-    watched: ''
-
   - title: The Amazing Spider-Man
     rating: ☆☆☆☆☆ (0/10)
     review: |
