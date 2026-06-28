@@ -314,4 +314,27 @@ h1, h2 {
     border-color: #007bff;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--accent-glow);
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, background 0.3s;
+    z-index: 100;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    background: #30363d;
 }
