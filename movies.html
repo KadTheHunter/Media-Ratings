@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.1/dist/js-yaml.min.js"></script>
 </head>
 <body>
-<div class="container">
+<main class="container">
     <nav class="main-nav">
         <a href="index.html" class="nav-link nav-home">🏠 Home</a>
         <a href="movies.html" class="nav-link nav-movies active">🎥 Movies</a>
@@ -30,56 +30,56 @@
         <strong id="total-count">0</strong> rated • <strong id="library-count">0</strong> in library<br>Sorted by Rating → Weight → Watch Date
     </p>
 
-    <div class="tier">
     <div class="search-container">
         <input type="search" id="searchInput" placeholder="Search titles..." aria-label="Search titles">
     </div>
 
     <button id="backToTop" class="back-to-top">↑</button>
 
+    <section class="tier">
         <h2>S-Tier (9-10/10)</h2>
         <div class="grid" id="s-tier"></div>
-    </div>
+    </section>
 
-    <div class="tier">
+    <section class="tier">
         <h2>A-Tier (7-8/10)</h2>
         <div class="grid" id="a-tier"></div>
-    </div>
+    </section>
 
-    <div class="tier">
+    <section class="tier">
         <h2>B-Tier (5-6/10)</h2>
         <div class="grid" id="b-tier"></div>
-    </div>
+    </section>
     
-    <div class="tier">
+    <section class="tier">
         <h2>C-Tier (3-4/10)</h2>
         <div class="grid" id="c-tier"></div>
-    </div>
+    </section>
     
-    <div class="tier">
+    <section class="tier">
         <h2>D-Tier (1-2/10)</h2>
         <div class="grid" id="d-tier"></div>
-    </div>
+    </section>
     
-    <div class="tier">
+    <section class="tier">
         <h2>F-Tier (0/10)</h2>
         <div class="grid" id="f-tier"></div>
-    </div>
+    </section>
 
-    <div class="tier">
+    <section class="tier">
         <h2 id="unranked-header">Unranked (?/10) ▼</h2>
         <div class="grid" id="unranked-tier"></div>
-    </div>
-</div>
+    </section>
+</main>
 
-<div id="reviewModal" class="modal">
+<dialog id="reviewModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2 id="modalTitle"></h2>
         <hr>
         <p id="modalReview"></p>
     </div>
-</div>
+</dialog>
 
 <script>
     fetch('data.yml')

@@ -13,7 +13,7 @@ function formatDate(dateStr) {
 }
 
 function createCard(item) {
-    const card = document.createElement('div');
+    const card = document.createElement('article');
     card.className = 'card';
 
     const watchedHTML = item.watched
