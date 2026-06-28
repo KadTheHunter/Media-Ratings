@@ -56,7 +56,7 @@ def get_jellyfin_items():
     url = f"{JELLYFIN_URL}/Users/{USER_ID}/Items"
     params = {
         "IncludeItemTypes": "Movie,Series", "Recursive": "true",
-        "Fields": "ImageTags,Path", "SortBy": "SortName", "SortOrder": "Ascending"
+        "Fields": "ImageTags,Path,PremiereDate", "SortBy": "SortName", "SortOrder": "Ascending"
     }
     response = requests.get(url, headers=headers, params=params)
     response.raise_for_status()
@@ -122,6 +122,12 @@ def main():
     print("Fetching items from Jellyfin...")
     items = get_jellyfin_items()
 
+    title_counts = {"movies": {}, "tv": {}, "anime": {}}
+    for item in items:
+        cat = get_category_from_path(item.get("Path", ""))
+        name = item.get("Name", "").lower().strip()
+        title_counts[cat][name] = title_counts[cat].get(name, 0) + 1
+
     added_count = 0
 
     for item in items:
@@ -132,6 +138,14 @@ def main():
         category = get_category_from_path(item.get("Path", ""))
 
         title_check = jellyfin_title.lower().strip()
+
+        if title_counts[category].get(title_check, 0) > 1:
+            premiere_date = item.get("PremiereDate")
+            if premiere_date:
+                year = premiere_date[:4]
+                jellyfin_title = f"{jellyfin_title} ({year})"
+                title_check = jellyfin_title.lower().strip()
+
         if title_check in existing_titles[category]:
             continue
 
