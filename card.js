@@ -42,7 +42,7 @@ function extractRatingScore(ratingStr) {
 }
 
 function sortCategoryData(data) {
-    return data.sort((a, b) => {
+    return [...data].sort((a, b) => {
         // Highest rating first
         const scoreA = extractRatingScore(a.rating);
         const scoreB = extractRatingScore(b.rating);
