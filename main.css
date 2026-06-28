@@ -301,19 +301,33 @@ h1, h2 {
     pointer-events: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
-        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
     }
 
     .card {
-        max-width: 200px;
+        max-width: 100%;
     }
 
-    body {
-        padding: 10px;
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 15px;
     }
+
+    .main-nav {
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
 .search-container {
     max-width: 400px;
     margin: 2rem auto;
