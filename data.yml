@@ -136,7 +136,15 @@ movies:
     tier: unranked
     watched: ''
 
-  - title: The Addams Family
+  - title: The Addams Family (1991)
+    rating: ☆☆☆☆☆ (0/10)
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
+  - title: The Addams Family (2019)
     rating: ☆☆☆☆☆ (0/10)
     review: |
       TBA
@@ -320,7 +328,15 @@ movies:
     tier: unranked
     watched: ''
 
-  - title: Appleseed
+  - title: Appleseed (1988)
+    rating: ☆☆☆☆☆ (0/10)
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
+  - title: Appleseed (2004)
     rating: ☆☆☆☆☆ (0/10)
     review: |
       TBA
@@ -512,7 +528,15 @@ movies:
     tier: unranked
     watched: ''
 
-  - title: The Bat
+  - title: The Bat (1926)
+    rating: ☆☆☆☆☆ (0/10)
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
+  - title: The Bat (1959)
     rating: ☆☆☆☆☆ (0/10)
     review: |
       TBA
@@ -1400,7 +1424,7 @@ movies:
     tier: unranked
     watched: ''
 
-  - title: The Day the Earth Stood Still
+  - title: The Day of the Jackal
     rating: ☆☆☆☆☆ (0/10)
     review: |
       TBA
@@ -1408,7 +1432,15 @@ movies:
     tier: unranked
     watched: ''
 
-  - title: The Day of the Jackal
+  - title: The Day the Earth Stood Still (1951)
+    rating: ☆☆☆☆☆ (0/10)
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
+  - title: The Day the Earth Stood Still (2008)
     rating: ☆☆☆☆☆ (0/10)
     review: |
       TBA
@@ -3759,7 +3791,15 @@ movies:
     tier: unranked
     watched: ''
 
-  - title: The Magnificent Seven
+  - title: The Magnificent Seven (1960)
+    rating: ☆☆☆☆☆ (0/10)
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
+  - title: The Magnificent Seven (2016)
     rating: ☆☆☆☆☆ (0/10)
     review: |
       TBA
@@ -3783,7 +3823,15 @@ movies:
     tier: unranked
     watched: ''
 
-  - title: The Man Who Knew Too Much
+  - title: The Man Who Knew Too Much (1934)
+    rating: ☆☆☆☆☆ (0/10)
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
+  - title: The Man Who Knew Too Much (1956)
     rating: ☆☆☆☆☆ (0/10)
     review: |
       TBA
@@ -4143,7 +4191,15 @@ movies:
     tier: unranked
     watched: ''
 
-  - title: The Mummy
+  - title: The Mummy (1932)
+    rating: ☆☆☆☆☆ (0/10)
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
+  - title: The Mummy (1999)
     rating: ☆☆☆☆☆ (0/10)
     review: |
       TBA
