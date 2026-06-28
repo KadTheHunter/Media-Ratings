@@ -143,12 +143,36 @@ function openModal(title, review) {
     modalTitle.textContent = title + ' Review';
     modalReview.innerHTML = review.replace(/\n/g, '<br>');
     modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
 }
 
-closeBtn.onclick = () => modal.style.display = 'none';
+function closeModal() {
+    modal.classList.remove('show');
+
+    // Wait for animation to finish before hiding
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }, 300);
+}
+
+closeBtn.onclick = closeModal;
+
 window.onclick = (event) => {
-    if (event.target === modal) modal.style.display = 'none';
-};// ==================== BACK TO TOP BUTTON ====================
+    if (event.target === modal) closeModal();
+};
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+    }
+});
+
+// ==================== BACK TO TOP BUTTON ====================
 const backToTopBtn = document.getElementById('backToTop');
 if (backToTopBtn) {
     window.addEventListener('scroll', () => {
