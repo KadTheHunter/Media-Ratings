@@ -135,7 +135,16 @@ def main():
         if not jellyfin_title:
             continue
 
-        category = get_category_from_path(item.get("Path", ""))
+        item_type = item.get("Type")
+        path = item.get("Path", "")
+
+        if item_type == "Series":
+            if "anime" in path.lower():
+                category = "anime"
+            else:
+                category = "tv"
+        else:
+            category = get_category_from_path(path)
 
         title_check = jellyfin_title.lower().strip()
 
