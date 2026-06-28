@@ -41,6 +41,12 @@ def get_category_from_path(path):
         return "tv"
     return "tv"
 
+def get_sortable_title(title):
+    t = title.lower().strip()
+    for article in ["the ", "a ", "an "]:
+        if t.startswith(article):
+            return t[len(article):]
+    return t
 
 # ======================
 # JELLYFIN API FUNCTIONS
@@ -103,10 +109,15 @@ def main():
     print("Loading existing data.yml...")
     data = load_data_yml()
 
-    existing_titles = set()
+    existing_titles = {
+        "movies": set(),
+        "tv": set(),
+        "anime": set()
+    }
+
     for category in ["movies", "tv", "anime"]:
         for item in data[category]:
-            existing_titles.add(item.get("title", "").lower().strip())
+            existing_titles[category].add(item.get("title", "").lower().strip())
 
     print("Fetching items from Jellyfin...")
     items = get_jellyfin_items()
@@ -118,11 +129,12 @@ def main():
         if not jellyfin_title:
             continue
 
+        category = get_category_from_path(item.get("Path", ""))
+
         title_check = jellyfin_title.lower().strip()
-        if title_check in existing_titles:
+        if title_check in existing_titles[category]:
             continue
 
-        category = get_category_from_path(item.get("Path", ""))
         poster_url = "assets/images/no-poster.svg"
 
         new_entry = {
@@ -134,8 +146,19 @@ def main():
             "watched": ""
         }
 
-        data[category].append(new_entry)
-        existing_titles.add(title_check)
+        new_sortable = get_sortable_title(jellyfin_title)
+        insert_index = len(data[category])
+
+        for i, existing_item in enumerate(data[category]):
+            existing_sortable = get_sortable_title(existing_item.get("title", ""))
+            if existing_sortable > new_sortable:
+                insert_index = i
+                break
+
+        data[category].insert(insert_index, new_entry)
+
+        existing_titles[category].add(title_check)
+
         added_count += 1
         print(f"Added: {jellyfin_title} to {category}")
 
