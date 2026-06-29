@@ -7,6 +7,53 @@ from ruamel.yaml.scalarstring import LiteralScalarString
 
 load_dotenv()
 
+class Colors:
+    # Reset
+    RESET = "\033[0m"
+
+    # Text styles
+    BOLD = "\033[1m"
+    ITALIC = "\033[3m"
+    UNDERLINE = "\033[4m"
+    REVERSE = "\033[7m"
+    STRIKETHROUGH = "\033[9m"
+
+    # Bright foreground colors
+    RED = "\033[91m"
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    BLUE = "\033[94m"
+    MAGENTA = "\033[95m"
+    CYAN = "\033[96m"
+    WHITE = "\033[97m"
+    ORANGE = "\033[38;5;208m"
+    ORANGE_RED = "\033[38;5;202m"
+
+    # Background colors
+    BG_BLACK = "\033[40m"
+    BG_RED = "\033[41m"
+    BG_GREEN = "\033[42m"
+    BG_YELLOW = "\033[43m"
+    BG_BLUE = "\033[44m"
+    BG_MAGENTA = "\033[45m"
+    BG_CYAN = "\033[46m"
+    BG_WHITE = "\033[47m"
+    BG_GRAY = "\033[100m"
+
+    # Bright background colors
+    BG_BRIGHT_RED = "\033[101m"
+    BG_BRIGHT_GREEN = "\033[102m"
+    BG_BRIGHT_YELLOW = "\033[103m"
+    BG_BRIGHT_BLUE = "\033[104m"
+    BG_BRIGHT_MAGENTA = "\033[105m"
+    BG_BRIGHT_CYAN = "\033[106m"
+    BG_BRIGHT_WHITE = "\033[107m"
+
+def cprint(text, color=Colors.RESET):
+    print(f"{color}{text}{Colors.RESET}")
+
+
+
 # =============
 # CONFIGURATION
 # =============
@@ -103,10 +150,10 @@ def save_data_yml(data):
 # ===========
 def main():
     if not all([JELLYFIN_URL, JELLYFIN_API_KEY, USER_ID]):
-        print("Error: Missing Jellyfin credentials in .env file!")
+        cprint("Error: Missing Jellyfin credentials in .env file!", Colors.RED)
         return
 
-    print("Loading existing data.yml...")
+    cprint("Loading existing data.yml...", Colors.CYAN)
     data = load_data_yml()
 
     existing_titles = {
@@ -119,7 +166,7 @@ def main():
         for item in data[category]:
             existing_titles[category].add(item.get("title", "").lower().strip())
 
-    print("Fetching items from Jellyfin...")
+    cprint("Fetching items from Jellyfin...", Colors.CYAN)
     items = get_jellyfin_items()
 
     title_counts = {"movies": {}, "tv": {}, "anime": {}}
@@ -183,9 +230,13 @@ def main():
         existing_titles[category].add(title_check)
 
         added_count += 1
-        print(f"Added: {jellyfin_title} to {category}")
+        cprint(f"Added: {Colors.CYAN}{jellyfin_title} {Colors.GREEN}to {Colors.ORANGE}{category}", Colors.GREEN)
 
     print(f"\nSaving updated data.yml... Added {added_count} new items.")
+    if added_count > 0:
+        cprint(f"\n✓ Added {Colors.CYAN}{Colors.BOLD}{added_count}{Colors.RESET} {Colors.GREEN}new items.", Colors.GREEN)
+    else:
+        cprint(f"\n✓ No new items to add. Library is up to date.", Colors.GREEN)
     save_data_yml(data)
 
 
