@@ -178,7 +178,7 @@ h1, h2 {
 }
 
 .close:hover {
-    color: black;
+    color: var(--accent-glow);
 }
 
 .main-nav {
@@ -347,7 +347,7 @@ h1, h2 {
 
 #searchInput:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: var(--accent-glow);
 }
 
 .back-to-top {
