@@ -45,10 +45,6 @@ h1, h2 {
     margin-bottom: 0;
 }
 
-.tier {
-    margin-bottom: 20px;
-}
-
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, 200px);
@@ -110,19 +106,6 @@ h1, h2 {
     color: #8b949e;
     font-style: italic;
     opacity: 0.85;
-}
-
-.btn {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: #0056b3;
 }
 
 .modal {
@@ -208,19 +191,19 @@ h1, h2 {
 }
 
 .nav-movies:hover {
-    box-shadow: 0 0 20px 8px rgba(255, 223, 128, 0.35);  /* soft yellow */
+    box-shadow: 0 0 20px 8px rgba(255, 223, 128, 0.35);
     background: rgba(255, 223, 128, 0.08);
     color: rgb(255, 223, 128);
 }
 
 .nav-tv:hover {
-    box-shadow: 0 0 20px 8px rgba(173, 255, 173, 0.35);   /* soft green */
+    box-shadow: 0 0 20px 8px rgba(173, 255, 173, 0.35);
     background: rgba(173, 255, 173, 0.08);
     color: rgb(173, 255, 173);
 }
 
 .nav-anime:hover {
-    box-shadow: 0 0 20px 8px rgba(255, 182, 193, 0.35);   /* soft pink */
+    box-shadow: 0 0 20px 8px rgba(255, 182, 193, 0.35);
     background: rgba(255, 182, 193, 0.08);
     color: rgb(255, 182, 193);
 }
