@@ -232,7 +232,33 @@ def main():
         added_count += 1
         cprint(f"Added: {Colors.CYAN}{jellyfin_title} {Colors.GREEN}to {Colors.ORANGE}{category}", Colors.GREEN)
 
-    print(f"\nSaving updated data.yml... Added {added_count} new items.")
+    jellyfin_titles = {"movies": set(), "tv": set(), "anime": set()}
+    for item in items:
+        item_type = item.get("Type", "")
+        path = item.get("Path", "")
+
+        if item_type == "Series":
+            cat = "anime" if "anime" in path.lower() else "tv"
+        else:
+            cat = "movies"
+
+        title = item.get("Name", "").lower().strip()
+        title_no_year = re.sub(r'\s*\(\d{4}\)', '', title)
+        jellyfin_titles[cat].add(title_no_year)
+
+    ghosts = []
+    for category in ["movies", "tv", "anime"]:
+        for item in data[category]:
+            title = item.get("title", "").lower().strip()
+            title_no_year = re.sub(r'\s*\(\d{4}\)', '', title)
+            if title_no_year not in jellyfin_titles[category]:
+                ghosts.append((category, item.get("title")))
+
+    if ghosts:
+        cprint(f"\n⚠️  Found {Colors.RED}{len(ghosts)} {Colors.YELLOW}entries in data.yml not in Jellyfin:", Colors.YELLOW)
+        for cat, title in ghosts:
+            cprint(f"   {Colors.RED}[{cat}] {Colors.ORANGE_RED}{Colors.BOLD}{title}")
+        print()
     if added_count > 0:
         cprint(f"\n✓ Added {Colors.CYAN}{Colors.BOLD}{added_count}{Colors.RESET} {Colors.GREEN}new items.", Colors.GREEN)
     else:
