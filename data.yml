@@ -3244,7 +3244,7 @@ movies:
     rating: "★★★★☆ (8.7/10)"
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/v4/movie/1663/posters/64aa12d9c7885.jpg
+    poster: assets/posters/movies/Jumper.webp
     tier: a
 
   - title: Juno and the Paycock
@@ -6700,7 +6700,7 @@ tv:
     rating: "★★★☆☆ (7.4/10)"
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/posters/268592-9.jpg
+    poster: assets/posters/tv/The_100.webp
     tier: a
 
   - title: '1883'
@@ -6983,7 +6983,7 @@ tv:
       Despite one of the main characters continuing to drag down the show two whole seasons after her death; Despite a solid half of the major storylines left unfinished even while having 220 episodes across 10 seasons to do so (and no cancellation!): the <i>other</i> main character of Raymond Reddington (James Spader) is so masterfully written and acted, that he single-handedly carries the show through all 10 seasons.
       
       Were it not for Spader's performance as Raymond Reddington, The Blacklist would easily be a C-Tier 3/10, or even a D-Tier 2/10; Despite his performance, it's still only an A-Tier 8/10 because <i>good god</i>, would it have killed the writers to wrap up <b>some</b> of the major plotlines?
-    poster: https://artworks.thetvdb.com/banners/posters/6401e88074c96.jpg
+    poster: assets/posters/tv/The_Blacklist.webp
     tier: a
     watched: "2026-01-09"
 
@@ -7023,7 +7023,7 @@ tv:
       The first couple episodes were quite good, and the flashbacks to Boba's time in the Tatooine desert living with the Tusken Raiders were genuinely excellent, but after that it's just straight downhill.
       
       Disappointing. Just honestly disappointing.
-    poster: https://artworks.thetvdb.com/banners/v4/series/393589/posters/61587826c7cfd.jpg
+    poster: assets/posters/tv/The_Book_Of_Boba_Fett.webp
     tier: c
 
   - title: The Boondocks
@@ -7693,7 +7693,7 @@ tv:
       It definitely isn't for everyone, and if my one-liner summary above is off-putting then that's fine (I imagine any actual victims of sexual assault or rape might not want to watch this show), but if you have even the faintest interest in it, whether from that summary, its connection to <i>Jumper</i>, or even just the sci-fi teleportation... give it a shot.
       
       Just be prepared to be unreasonably angry when you finish it and remember there's no third season.
-    poster: https://artworks.thetvdb.com/banners/v4/series/344995/posters/64ca61f216081.jpg
+    poster: assets/posters/tv/Impulse.webp
     tier: s
     watched: "2026-04-28"
 
@@ -7793,7 +7793,7 @@ tv:
       I was not a fan of the oft unnecessary visual vulgarity (I feel that Game of Thrones managed to have less, though perhaps my memories are muddled), though it was not nearly bad enough to warrant a drop in my rating.
       
       Quite a good, short show, that (shockingly, for the world of Westeros) manages to tell a story without major plot-holes, loose ends, or a horrifically unsatisfactory ending.
-    poster: https://artworks.thetvdb.com/banners/v4/series/433631/posters/6934ab30720ee.jpg
+    poster: assets/posters/tv/A_Knight_of_the_Seven_Kingdoms.webp
     tier: a
     watched: "2026-03-08"
 
@@ -8087,7 +8087,7 @@ tv:
       While Ray is undeniably a criminal--  a thief, murderer, drug mule, assassin, kidnapper and torturer all in one-- it's quite hard to feel sorry for most of his victims. Whether its the stupid and bumbling thugs who try to swindle him, or the pedophile who abducted his daughters friend, most of the people who suffered or died at his hand really did deserve it.
       
       I wasn't a particularly huge fan of his perverted friend Gary (Justin Rosniak), who contributed to some of the worst scenes and dialogue in the show (thank you Gary for introducing us to the concept of a Vajankle, I'm going to go stab my eyes out with a fork now), though I do accept that we all have <i>that one friend</i> like him.
-    poster: https://artworks.thetvdb.com/banners/posters/5b918305879b6.jpg
+    poster: assets/posters/tv/Mr_Inbetween.webp
     tier: s
     watched: "2026-01-31"
 
@@ -8599,7 +8599,7 @@ tv:
     rating: "★★★☆☆ (7/10)"
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/posters/75299-17.jpg
+    poster: assets/posters/tv/The_Sopranos.webp
     tier: a
 
   - title: Spaced
@@ -8686,7 +8686,7 @@ tv:
     rating: "★★★★☆ (9/10)"
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/v4/series/462715/posters/69be7f3c24740.jpg
+    poster: assets/posters/tv/Star_Wars_Maul_Shadow_Lord.webp
     tier: s
     watched: "2026-05-04"
 
@@ -8700,7 +8700,7 @@ tv:
       This is <i>exactly</i> the type of show Star Wars needs more of: exploring a galaxy far far away, without big names like Skywalker or Palpatine, but without completely eschewing the Jedi and the Force à la "Andor".
       
       If you are even vaguely intrigued by the idea of Pirates meets Star Wars meets '80s Adventure Films, then give Skeleton Crew a chance.
-    poster: https://artworks.thetvdb.com/banners/v4/series/420600/posters/67507e5a079f0.jpg
+    poster: assets/posters/tv/Star_Wars_Skeleton_Crew.webp
     tier: a
     watched: "2026-01-11"
 
@@ -8842,7 +8842,7 @@ tv:
       While I wasn't a fan of the incestuous story threads involving his half-sister Zilpha Geary (Oona Chaplin), or the molly house attending Michael 'Godders' Godfrey (Edward Hogg), I <b>love</b> his personal and professional relationships with his fathers young suitor Lorna Bow (Jessie Buckley) and his fathers servant Brace (David Hayman). 
       
       While the main storyline initially seems a bit aimless, it very quickly shapes up and draws you in, and though the ending is a bit of a cliff-hanger (supposedly there will be a season two), it's reasonable enough that it could end there with no issues.
-    poster: https://artworks.thetvdb.com/banners/posters/292157-1.jpg
+    poster: assets/posters/tv/Taboo_(2017).webp
     tier: s
     watched: "2026-01-15"
 
@@ -8874,7 +8874,7 @@ tv:
       There are however a couple storylines that <b>really</b> stood out; Notably "My Two Dads" where a series of pranks on a school bully winds up with Ted and Johnny helping him become a better person, and "Dungeons and Dealers", where they must play (and win) a Dungeons and Dragons campaign in order to score drugs.
       
       Loses a few points overall for progressive undertones shoe-horned into certain episodes, but still a great show well worth a watch.
-    poster: https://artworks.thetvdb.com/banners/v4/series/404604/posters/656d8d7db69b4.jpg
+    poster: assets/posters/tv/ted.webp
     tier: a
     watched: "2026-04-17"
 
@@ -8920,7 +8920,7 @@ tv:
       Stallone makes for an interesting and engaging mob boss, and while some of the main and supporting characters started off a bit weak, they've all flourished spectacularly. Mitch Keller (Garrett Hedlund), Grace (McKenna Quigley Harrington) and "Bigfoot" (Mike Walkden) in particular became some of the best (if not necessarily most important, at least in "Bigfoot" and Grace's case) characters in the show.
       
       Honestly Tulsa King could be an S tier (if a lower S tier), were it not for the slightly repetitive plotlines, though even that is not enough to drag it down too much.
-    poster: https://artworks.thetvdb.com/banners/v4/series/413215/posters/63f4ac35755e0.jpg
+    poster: assets/posters/tv/Tulsa_King.webp
     tier: a
     watched: "2026-03-21"
 
@@ -9038,7 +9038,7 @@ tv:
       Being cancelled after a single season (likely due to being on YouTube TV, which is used by.... who exactly?) was criminal, particularly given the semi-cliff-hanger ending, and obvious intention of a second season.
       
       Come for the crappy teen action-drama, stay for the genuinely good chemistry and increasingly wacky plot.
-    poster: https://artworks.thetvdb.com/banners/v4/series/353367/posters/654e202c2609e.jpg
+    poster: assets/posters/tv/Wayne.webp
     tier: s
 
   - title: WeCrashed
@@ -9057,7 +9057,7 @@ tv:
       Wednesday Addams' (Jenna Ortega) interactions with her family, fellow Outcasts, and emerging enemies were delightfully sarcastic with a lovely dark edge, and contrasted starkly against Enid Sinclair's (Emma Myers) almost offensively bright and bubbly character. The plot as a whole was fairly intriguing, and the reveal of who the antagonist(s) were was not wholly expected!
       
       Unfortunately, I must take off 1 whole point due to the occasional line of woke dialogue shoehorned in (I'm less offended by the message, and more the fact they didn't bother to write it in better), as well as the "Wenclair" shippers in the fanbase, whom I can only describe as rabidly lunatic.
-    poster: https://artworks.thetvdb.com/banners/v4/series/397060/posters/632dbd876738d.jpg
+    poster: assets/posters/tv/Wednesday.webp
     tier: s
     weight: 1
     watched: "2026-02-22"
@@ -9139,7 +9139,7 @@ anime:
     rating: "★★★★☆ (9.5/10)"
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/posters/5c40fe3372cae.jpg
+    poster: assets/posters/anime/7Seeds.webp
     tier: s
     watched: ""
 
@@ -9155,7 +9155,7 @@ anime:
     rating: ★★★★☆ (9.2/10)
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/posters/300835-9.jpg
+    poster: assets/posters/anime/Ajin.webp
     tier: s
     watched: ''
 
@@ -9219,7 +9219,7 @@ anime:
     rating: ★★★☆☆ (4.8/10)
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/posters/5d76f3bb798ee.jpg
+    poster: assets/posters/anime/Black_Butler.webp
     tier: c
     watched: ''
 
@@ -9427,7 +9427,7 @@ anime:
     rating: ★★★★☆ (8.4/10)
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/posters/193841-3.jpg
+    poster: assets/posters/anime/Psychic_Detective_Yakumo.webp
     tier: a
     watched: ''
 
@@ -9475,7 +9475,7 @@ anime:
     rating: ★★★★☆ (9.4/10)
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/v4/series/405920/posters/61c9e4093167d.jpg
+    poster: assets/posters/anime/SPY_x_FAMILY.webp
     tier: s
     watched: ''
 
@@ -9483,7 +9483,7 @@ anime:
     rating: ★★★☆☆ (7.2/10)
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/v4/series/393190/posters/6139de458f13b.jpg
+    poster: assets/posters/anime/Star_Wars_Visions.webp
     tier: a
     watched: ''
 
@@ -9507,7 +9507,7 @@ anime:
     rating: ★★★★☆ (9.3/10)
     review: |
       TBA
-    poster: https://artworks.thetvdb.com/banners/posters/281249-7.jpg
+    poster: assets/posters/anime/Tokyo_Ghoul.webp
     tier: s
     watched: ''
 
