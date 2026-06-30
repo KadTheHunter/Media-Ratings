@@ -84,7 +84,7 @@ h1, h2 {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 100%;
+    width: 200px;
     max-width: 200px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -96,10 +96,11 @@ h1, h2 {
 }
 
 .card img {
-    width: 100%;
-    aspect-ratio: 2 / 3;
+    width: 200px;
+    height: 300px;
     object-fit: cover;
     background-color: #333;
+    display: block;
 }
 
 .poster-container {

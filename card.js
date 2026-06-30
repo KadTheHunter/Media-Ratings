@@ -12,7 +12,7 @@ function formatDate(dateStr) {
     });
 }
 
-function createCard(item) {
+function createCard(item, index = 0, eagerThreshold = 8) {
     const card = document.createElement('article');
     card.className = 'card';
 
@@ -20,9 +20,15 @@ function createCard(item) {
         ? `<p class="card-date">Finished Watching:<br>${formatDate(item.watched)}</p>`
         : '';
 
+    const loadingAttr = index < eagerThreshold ? 'eager' : 'lazy';
+
     card.innerHTML = `
         <div class="poster-container">
-            <img src="${item.poster}" loading="lazy" alt="${item.title} Poster">
+            <img src="${item.poster}" 
+                 loading="${loadingAttr}" 
+                 width="200" 
+                 height="300"
+                 alt="${item.title} Poster">
         </div>
         <div class="card-content">
             <h3 class="card-title">${item.title}</h3>
@@ -104,6 +110,22 @@ function setupSearch() {
 }
 
 // ==================== POPULATE CARDS ====================
+function getVisibleCardCount() {
+    const grid = document.querySelector('.grid');
+    if (!grid) return 8;
+
+    const gridStyle = getComputedStyle(grid);
+    const columns = gridStyle.gridTemplateColumns.split(' ').length;
+    const viewportHeight = window.innerHeight;
+    const gridTop = grid.getBoundingClientRect().top;
+    const availableHeight = viewportHeight - gridTop;
+
+    const cardHeight = 300;
+    const visibleRows = Math.ceil(availableHeight / cardHeight);
+
+    return columns * visibleRows;
+}
+
 function populateCards() {
     if (!window.categoryData) {
         console.error('Failed to load category data. Check that data.yml exists and is valid.');
@@ -123,10 +145,15 @@ function populateCards() {
     }
 
     const sortedData = sortCategoryData(window.categoryData);
+    const eagerLoadCount = getVisibleCardCount();
 
+    let globalIndex = 0;
     sortedData.forEach(item => {
         const tierGrid = document.getElementById(`${item.tier}-tier`);
-        if (tierGrid) tierGrid.appendChild(createCard(item));
+        if (tierGrid) {
+            tierGrid.appendChild(createCard(item, globalIndex, eagerLoadCount));
+            globalIndex++;
+        }
     });
 
     setupUnrankedToggle();
