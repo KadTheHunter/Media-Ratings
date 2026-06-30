@@ -136,9 +136,9 @@ h1, h2 {
 .card-date {
     margin: 6px 0 0 0;
     font-size: 0.9rem;
-    color: #8b949e;
+    color: #a0a8b0;
     font-style: italic;
-    opacity: 0.85;
+    opacity: 1;
 }
 
 #unranked-header {
@@ -204,7 +204,7 @@ h1, h2 {
 }
 
 .close {
-    color: #aaa;
+    color: #c9d1d9;
     float: right;
     font-size: 28px;
     font-weight: bold;
