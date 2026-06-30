@@ -97,7 +97,8 @@ def save_data_yml(data):
 # HELPER FUNCTIONS
 # ================
 def normalize_for_matching(text):
-    normalized = re.sub(r'[<>:"/\\|?*]', '', text)
+    # Removes: < > : " / \ | ? * and all dash variants (-, –, —)
+    normalized = re.sub(r'[<>:"/\\|?*\-\u2013\u2014]', '', text)
     normalized = re.sub(r'[\s_]+', ' ', normalized)
     return normalized.strip().lower()
 
@@ -115,6 +116,7 @@ def main():
 
     processed_count = 0
     linked_count = 0
+    unmatched_files = []
 
     for category in CATEGORIES:
         category_dir = POSTERS_DIR / category
@@ -154,6 +156,7 @@ def main():
                 filename_normalized = normalize_for_matching(file_path.stem)
                 webp_rel_path = str(file_path).replace("\\", "/")
 
+                matched = False
                 for entry in data.get(category, []):
                     entry_title = entry.get("title", "")
                     entry_normalized = normalize_for_matching(entry_title)
@@ -163,13 +166,22 @@ def main():
                             entry["poster"] = webp_rel_path
                             linked_count += 1
                             cprint(f"  ↳ Linked to [{Colors.MAGENTA}{category}{Colors.GREEN}]: {Colors.CYAN}{Colors.BOLD}{entry_title}", Colors.GREEN)
+                        matched = True
                         break
+
+                if not matched:
+                    unmatched_files.append((category, file_path.name))
 
     if data and linked_count > 0:
         save_data_yml(data)
         cprint(f"\nUpdated {Colors.CYAN}{linked_count} {Colors.GREEN}entries in data.yml.", Colors.GREEN)
 
-    if processed_count == 0 and linked_count == 0:
+    if unmatched_files:
+        cprint(f"\n⚠️  Found {Colors.RED}{len(unmatched_files)} {Colors.YELLOW}poster(s) could not be linked to any entry:", Colors.YELLOW)
+        for cat, filename in unmatched_files:
+            cprint(f"   [{cat}] {Colors.ORANGE_RED}{Colors.BOLD}{filename}", Colors.RED)
+
+    if processed_count == 0 and linked_count == 0 and not unmatched_files:
         cprint("No new images to process, no links to update.", Colors.YELLOW)
     else:
         if processed_count > 0:
