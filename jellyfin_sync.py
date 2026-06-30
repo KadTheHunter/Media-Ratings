@@ -53,7 +53,6 @@ def cprint(text, color=Colors.RESET):
     print(f"{color}{text}{Colors.RESET}")
 
 
-
 # =============
 # CONFIGURATION
 # =============
@@ -95,6 +94,7 @@ def get_sortable_title(title):
             return t[len(article):]
     return t
 
+
 # ======================
 # JELLYFIN API FUNCTIONS
 # ======================
@@ -124,7 +124,6 @@ def load_data_yml():
     for key in ["movies", "tv", "anime"]:
         if key not in data: data[key] = []
     return data
-
 
 def save_data_yml(data):
     with open(DATA_YML_PATH, 'w', encoding='utf-8') as f:
