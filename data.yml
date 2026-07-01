@@ -9526,3 +9526,28 @@ anime:
     poster: assets/images/no-poster.svg
     tier: unranked
     watched: ''
+music:
+
+  - title: Badlands
+    artist: 'Halsey'
+    rating: ★★★★☆ (9/10)
+    review: |
+      TBA
+    poster: assets/posters/music/Badlands.webp
+    tier: s
+
+  - title: Wednesday Season 1 - Soundtrack
+    artist: 'wednesday addams'
+    rating: ★★★★☆ (9/10)
+    review: |
+      TBA
+    poster: assets/posters/music/Wednesday_Season_1_Soundtrack.webp
+    tier: s
+videogames:
+
+  - title: Death Must Die
+    rating: ★★★★☆ (9.4/10)
+    review: |
+      TBA
+    poster: assets/posters/videogames/Death_Must_Die.webp
+    tier: s
