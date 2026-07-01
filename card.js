@@ -66,32 +66,37 @@ function sortCategoryData(data) {
     });
 }
 
-// ==================== COLLAPSIBLE UNRANKED ====================
-function setupUnrankedToggle() {
-    const header = document.getElementById('unranked-header');
-    const grid = document.getElementById('unranked-tier');
+// ==================== COLLAPSIBLE TIERS ====================
+function setupCollapsibleTiers() {
+    const tierHeaders = document.querySelectorAll('.tier-header');
 
-    if (!header || !grid) return;
+    tierHeaders.forEach(header => {
+        header.addEventListener('click', function(e) {
+            if (e.target.closest('a, button')) return;
 
-    header.addEventListener('click', function() {
-        const isCollapsed = grid.classList.contains('collapsed');
+            const gridId = this.id.replace('-header', '');
+            const grid = document.getElementById(gridId);
 
-        if (isCollapsed) {
-            // --- OPENING ---
-            grid.style.display = 'grid';
-            grid.classList.remove('collapsed');
-            header.textContent = header.textContent.replace('▶', '▼');
-        } else {
-            // --- CLOSING ---
-            grid.classList.add('collapsed');
-            header.textContent = header.textContent.replace('▼', '▶');
+            if (!grid) return;
 
-            setTimeout(() => {
-                if (grid.classList.contains('collapsed')) {
-                    grid.style.display = 'none';
-                }
-            }, 400);
-        }
+            const isCollapsed = grid.classList.contains('collapsed');
+
+            if (isCollapsed) {
+                grid.classList.remove('collapsed');
+                this.classList.remove('collapsed');
+                setTimeout(() => {
+                    grid.style.display = 'grid';
+                }, 10);
+            } else {
+                grid.classList.add('collapsed');
+                this.classList.add('collapsed');
+                setTimeout(() => {
+                    if (grid.classList.contains('collapsed')) {
+                        grid.style.display = 'none';
+                    }
+                }, 300);
+            }
+        });
     });
 }
 
@@ -212,7 +217,7 @@ function populateCards() {
         }
     });
 
-    setupUnrankedToggle();
+    setupCollapsibleTiers();
     setupSearch();
 }
 

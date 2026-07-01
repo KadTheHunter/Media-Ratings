@@ -70,6 +70,75 @@ h1, h2 {
 }
 
 /* ============
+   TIER HEADERS
+   ============ */
+.tier-header {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: fit-content;
+    margin: 1rem auto;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.tier-header:hover {
+    background: #21262d;
+}
+
+.collapse-indicator {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    display: inline-block;
+}
+
+.tier-header:hover .collapse-indicator {
+    opacity: 1;
+}
+
+.grid.collapsed {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    display: none !important;
+}
+
+.tier-header.collapsed .collapse-indicator {
+    transform: rotate(-90deg);
+}
+
+.tier-header::after {
+    content: 'click to collapse';
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #8b949e;
+    font-weight: normal;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+}
+
+.tier-header:hover::after {
+    max-height: 2rem;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+.tier-header.collapsed::after {
+    content: 'click to expand';
+}
+
+/* ============
    GRID & CARDS
    ============ */
 .grid {
@@ -140,23 +209,6 @@ h1, h2 {
     color: #a0a8b0;
     font-style: italic;
     opacity: 1;
-}
-
-#unranked-header {
-    cursor: pointer;
-    user-select: none;
-}
-
-#unranked-tier {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-#unranked-tier.collapsed {
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
 }
 
 /* =====
