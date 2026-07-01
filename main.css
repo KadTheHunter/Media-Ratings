@@ -24,8 +24,9 @@ h1, h2 {
 .main-nav {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 2.5rem;
-    padding: 1.25rem 0;
+    padding: 1.25rem 1rem;
     background: #1e2122;
     position: sticky;
     top: 0;
@@ -307,8 +308,9 @@ h1, h2 {
    ========= */
 
 .home-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
     max-width: 1200px;
     margin: 4rem auto;
@@ -325,6 +327,8 @@ h1, h2 {
     display: flex;
     flex-direction: column;
     position: relative;
+    flex: 1 1 340px;
+    max-width: 400px;
 }
 
 .category-link {
@@ -480,12 +484,27 @@ h1, h2 {
     }
 
     .main-nav {
-        gap: 1rem;
-        padding: 1rem 0;
+        gap: 0.5rem 1rem;
+        padding: 0.75rem 0.5rem;
+    }
+    .nav-link {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.8rem;
     }
 
-    .nav-link {
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
+    .home-grid {
+        gap: 1rem;
     }
+
+    .category-card {
+        flex-basis: calc(50% - 0.5rem);
+        max-width: calc(50% - 0.5rem);
+        min-width: 150px;
+        height: auto;
+        min-height: 200px;
+    }
+    .category-card .icon { font-size: 3rem; margin-top: 1.5rem; }
+    .category-card h2 { font-size: 1.5rem; margin: 0.5rem 0; }
+    .category-card p { flex-grow: 0; font-size: 0.85rem; padding: 0 1rem; }
+    .category-card .enter { font-size: 0.9rem; padding: 0.75rem;}
 }
