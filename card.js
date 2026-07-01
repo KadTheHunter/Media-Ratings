@@ -197,12 +197,13 @@ function populateCards() {
     const libraryCount = document.getElementById('library-count');
 
     if (totalCount) {
-        totalCount.textContent = window.categoryData.length;
+        const ratedItems = window.categoryData.filter(item => item.tier !== 'unranked');
+        totalCount.textContent = ratedItems.length;
     }
 
     if (libraryCount) {
-        const countableItems = window.categoryData.filter(item => item.count !== false);
-        libraryCount.textContent = countableItems.length;
+        const libraryItems = window.categoryData.filter(item => item.count !== false);
+        libraryCount.textContent = libraryItems.length;
     }
 
     const sortedData = sortCategoryData(window.categoryData);
