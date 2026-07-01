@@ -24,6 +24,8 @@
         <a href="movies.html" class="nav-link nav-movies">🎥 Movies</a>
         <a href="tvshows.html" class="nav-link nav-tv">📺 TV Shows</a>
         <a href="anime.html" class="nav-link nav-anime active">🌸 Anime</a>
+        <a href="music.html" class="nav-link nav-music">🎵 Music</a>
+        <a href="videogames.html" class="nav-link nav-videogames">🎮 Videogames</a>
     </nav>
     <h1>Anime Tier List</h1>
     <p id="entry-count" style="text-align:center; color:#8b949e; margin:-8px 0 2.5rem; font-size:1.05rem;">
@@ -87,6 +89,7 @@
         .then(text => {
             const allData = jsyaml.load(text);
             window.categoryData = allData.anime;
+            window.currentCategory = 'anime';
             populateCards();
         })
         .catch(err => console.error("YAML load failed:", err));

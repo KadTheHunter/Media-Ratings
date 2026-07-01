@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal ratings and reviews for Movies, TV shows, and Anime.">
-    <title>TV Shows Tier List</title>
+    <title>Videogames Tier List</title>
     <link rel="stylesheet" href="main.min.css"/>
     <style>
         :root {
-            --accent-glow: rgba(173, 255, 173, 0.35);
+            --accent-glow: rgba(255, 130, 60, 0.35);
         }
     </style>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
@@ -22,12 +22,12 @@
     <nav class="main-nav">
         <a href="index.html" class="nav-link nav-home">🏠 Home</a>
         <a href="movies.html" class="nav-link nav-movies">🎥 Movies</a>
-        <a href="tvshows.html" class="nav-link nav-tv active">📺 TV Shows</a>
+        <a href="tvshows.html" class="nav-link nav-tv">📺 TV Shows</a>
         <a href="anime.html" class="nav-link nav-anime">🌸 Anime</a>
         <a href="music.html" class="nav-link nav-music">🎵 Music</a>
-        <a href="videogames.html" class="nav-link nav-videogames">🎮 Videogames</a>
+        <a href="videogames.html" class="nav-link nav-videogames active">🎮 Videogames</a>
     </nav>
-    <h1>TV Shows Tier List</h1>
+    <h1>Videogames Tier List</h1>
     <p id="entry-count" style="text-align:center; color:#8b949e; margin:-8px 0 2.5rem; font-size:1.05rem;">
         <strong id="total-count">0</strong> rated • <strong id="library-count">0</strong> in library<br>Sorted by Rating → Weight → Watch Date
     </p>
@@ -52,17 +52,17 @@
         <h2 class="tier-header" id="b-tier-header">B-Tier (5-6/10) <span class="collapse-indicator">▼</span></h2>
         <div class="grid" id="b-tier"></div>
     </section>
-    
+
     <section class="tier">
         <h2 class="tier-header" id="c-tier-header">C-Tier (3-4/10) <span class="collapse-indicator">▼</span></h2>
         <div class="grid" id="c-tier"></div>
     </section>
-    
+
     <section class="tier">
         <h2 class="tier-header" id="d-tier-header">D-Tier (1-2/10) <span class="collapse-indicator">▼</span></h2>
         <div class="grid" id="d-tier"></div>
     </section>
-    
+
     <section class="tier">
         <h2 class="tier-header" id="f-tier-header">F-Tier (0/10) <span class="collapse-indicator">▼</span></h2>
         <div class="grid" id="f-tier"></div>
@@ -88,8 +88,8 @@
         .then(r => r.text())
         .then(text => {
             const allData = jsyaml.load(text);
-            window.categoryData = allData.tv;
-            window.currentCategory = 'tv';
+            window.categoryData = allData.videogames;
+            window.currentCategory = 'videogames';
             populateCards();
         })
         .catch(err => console.error("YAML load failed:", err));

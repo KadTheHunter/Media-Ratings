@@ -70,6 +70,18 @@ h1, h2 {
     color: rgb(255, 182, 193);
 }
 
+.nav-music:hover {
+    box-shadow: 0 0 20px 8px rgba(180, 130, 255, 0.35);
+    background: rgba(180, 130, 255, 0.08);
+    color: rgb(180, 130, 255);
+}
+
+.nav-videogames:hover {
+    box-shadow: 0 0 20px 8px rgba(255, 130, 60, 0.35);
+    background: rgba(255, 130, 60, 0.08);
+    color: rgb(255, 130, 60);
+}
+
 /* ============
    TIER HEADERS
    ============ */
@@ -173,11 +185,20 @@ h1, h2 {
     display: block;
 }
 
+.card.music img {
+    width: 200px;
+    height: 200px;
+}
+
 .poster-container {
     position: relative;
     width: 100%;
     aspect-ratio: 2 / 3;
     overflow: hidden;
+}
+
+.card.music .poster-container {
+    aspect-ratio: 1 / 1;
 }
 
 .poster-container img {

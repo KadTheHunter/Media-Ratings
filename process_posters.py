@@ -57,7 +57,7 @@ POSTERS_DIR = Path("assets/posters")
 DATA_YML_PATH = "data.yml"
 PLACEHOLDER = "assets/images/no-poster.svg"
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp", ".tiff"}
-CATEGORIES = ["movies", "tv", "anime"]
+CATEGORIES = ["movies", "tv", "anime", "music", "videogames"]
 
 
 # ======================
@@ -134,10 +134,13 @@ def main():
                 if img.mode in ('RGBA', 'P'):
                     img = img.convert('RGB')
 
-                if img.width > 400:
-                    ratio = 400 / img.width
-                    new_height = int(img.height * ratio)
-                    img = img.resize((400, new_height), Image.Resampling.LANCZOS)
+                if category == 'music':
+                    img = img.resize((400, 400), Image.Resampling.LANCZOS)
+                else:
+                    if img.width > 400:
+                        ratio = 400 / img.width
+                        new_height = int(img.height * ratio)
+                        img = img.resize((400, new_height), Image.Resampling.LANCZOS)
 
                 img.save(webp_path, 'WEBP', quality=80, method=6)
                 file_path.unlink()

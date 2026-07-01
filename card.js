@@ -14,26 +14,33 @@ function formatDate(dateStr) {
 
 function createCard(item, index = 0, eagerThreshold = 8) {
     const card = document.createElement('article');
-    card.className = 'card';
 
-    const watchedHTML = item.watched
-        ? `<p class="card-date">Finished Watching:<br>${formatDate(item.watched)}</p>`
-        : '';
+    const isMusic = window.currentCategory === 'music';
+    card.className = isMusic ? 'card music' : 'card';
+
+    let metadataHTML = '';
+    if (isMusic && item.artist) {
+        metadataHTML = `<p class="card-date">Artist: ${item.artist}</p>`;
+    } else if (!isMusic && item.watched) {
+        metadataHTML = `<p class="card-date">Finished Watching:<br>${formatDate(item.watched)}</p>`;
+    }
 
     const loadingAttr = index < eagerThreshold ? 'eager' : 'lazy';
+    const imgWidth = 200;
+    const imgHeight = isMusic ? 200 : 300;
 
     card.innerHTML = `
         <div class="poster-container">
             <img src="${item.poster}" 
                  loading="${loadingAttr}" 
-                 width="200" 
-                 height="300"
+                 width="${imgWidth}" 
+                 height="${imgHeight}"
                  alt="${item.title} Poster">
         </div>
         <div class="card-content">
             <h3 class="card-title">${item.title}</h3>
             <p class="card-rating">${item.rating}</p>
-            ${watchedHTML}
+            ${metadataHTML}
         </div>
     `;
 
