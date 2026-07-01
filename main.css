@@ -46,7 +46,7 @@ h1, h2 {
 }
 
 .nav-home:hover {
-    box-shadow: 0 0 20px 8px rgba(100, 181, 246, 0.30);
+    box-shadow: 0 0 20px 8px rgba(100, 181, 246, 0.35);
     background: rgba(100, 181, 246, 0.08);
     color: rgb(100, 181, 246);
 }
