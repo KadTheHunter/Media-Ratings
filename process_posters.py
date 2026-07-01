@@ -180,12 +180,12 @@ def main():
         cprint(f"\nUpdated {Colors.CYAN}{linked_count} {Colors.GREEN}entries in data.yml.", Colors.GREEN)
 
     if unmatched_files:
-        cprint(f"\n⚠️  Found {Colors.RED}{len(unmatched_files)} {Colors.YELLOW}poster(s) could not be linked to any entry:", Colors.YELLOW)
+        cprint(f"\n⚠️  Found {Colors.RED}{len(unmatched_files)} {Colors.YELLOW}poster(s) that could not be linked to any entry:", Colors.YELLOW)
         for cat, filename in unmatched_files:
             cprint(f"   [{cat}] {Colors.ORANGE_RED}{Colors.BOLD}{filename}", Colors.RED)
 
     if processed_count == 0 and linked_count == 0 and not unmatched_files:
-        cprint("No new images to process, no links to update.", Colors.YELLOW)
+        cprint("No new images to process, no links to update.", Colors.GREEN)
     else:
         if processed_count > 0:
             cprint(f"\nProcessed {Colors.CYAN}{processed_count} {Colors.GREEN}posters.", Colors.GREEN)
