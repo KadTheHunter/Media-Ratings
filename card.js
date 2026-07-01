@@ -100,13 +100,69 @@ function setupSearch() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
 
+    const unrankedHeader = document.getElementById('unranked-header');
+    const unrankedGrid = document.getElementById('unranked-tier');
+    let wasCollapsed = false;
+    let userManuallyOpened = false;
+
     searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
+        const searchTerm = e.target.value.toLowerCase().trim();
+        let totalVisible = 0;
+        let unrankedHasMatches = false;
+
         document.querySelectorAll('.card').forEach(card => {
             const title = card.querySelector('.card-title').textContent.toLowerCase();
-            card.style.display = title.includes(searchTerm) ? '' : 'none';
+            const matches = searchTerm === '' || title.includes(searchTerm);
+            card.style.display = matches ? '' : 'none';
+            if (matches) totalVisible++;
         });
+
+        if (unrankedGrid && unrankedHeader) {
+            const unrankedCards = unrankedGrid.querySelectorAll('.card');
+            const visibleUnranked = Array.from(unrankedCards).filter(card =>
+                card.style.display !== 'none'
+            ).length;
+
+            unrankedHasMatches = visibleUnranked > 0;
+            const isCollapsed = unrankedGrid.classList.contains('collapsed');
+
+            if (searchTerm !== '' && unrankedHasMatches && isCollapsed && !userManuallyOpened) {
+                wasCollapsed = true;
+                unrankedGrid.style.display = 'grid';
+                unrankedGrid.classList.remove('collapsed');
+                unrankedHeader.textContent = unrankedHeader.textContent.replace('▶', '▼');
+            } else if (searchTerm === '' && wasCollapsed && !userManuallyOpened) {
+                unrankedGrid.classList.add('collapsed');
+                unrankedHeader.textContent = unrankedHeader.textContent.replace('▼', '▶');
+                setTimeout(() => {
+                    if (unrankedGrid.classList.contains('collapsed')) {
+                        unrankedGrid.style.display = 'none';
+                    }
+                }, 400);
+            }
+        }
+
+        const totalCount = document.getElementById('total-count');
+        if (totalCount) {
+            if (searchTerm === '') {
+                totalCount.textContent = window.categoryData.length;
+            } else {
+                totalCount.textContent = totalVisible;
+            }
+        }
     });
+
+    if (unrankedHeader && unrankedGrid) {
+        unrankedHeader.addEventListener('click', () => {
+            const isCollapsed = unrankedGrid.classList.contains('collapsed');
+            if (isCollapsed) {
+                userManuallyOpened = true;
+                wasCollapsed = false;
+            } else {
+                userManuallyOpened = false;
+            }
+        });
+    }
 }
 
 // ==================== POPULATE CARDS ====================
