@@ -87,6 +87,16 @@ function createCard(item, index = 0, eagerThreshold = 8) {
         </div>
     `;
 
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `View review for ${item.title}`);
+    card.onkeydown = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault(); // Prevents page scroll when pressing Space
+            openModal(item.title, item.review);
+        }
+    };
+
     card.onclick = () => openModal(item.title, item.review);
     return card;
 }
@@ -137,6 +147,15 @@ function setupCollapsibleTiers() {
     const tierHeaders = document.querySelectorAll('.tier-header');
 
     tierHeaders.forEach(header => {
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('role', 'button');
+        header.onkeydown = function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        };
+
         header.addEventListener('click', function(e) {
             if (e.target.closest('a, button')) return;
 
