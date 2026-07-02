@@ -9528,21 +9528,54 @@ anime:
     watched: ''
 music:
 
+  - title: Animal
+    artist: 'Ke$ha'
+    rating: ★★★★☆ (7.8/10)
+    review: |
+      TBA
+    poster: assets/posters/music/Animal.webp
+    tier: a
+
   - title: Badlands
     artist: 'Halsey'
-    rating: ★★★★☆ (9/10)
+    rating: ★★★★☆ (9.2/10)
     review: |
       TBA
     poster: assets/posters/music/Badlands.webp
     tier: s
 
+  - title: Cannibal
+    artist: 'Ke$ha'
+    rating: ★★★★☆ (9/10)
+    review: |
+      TBA
+    poster: assets/posters/music/Cannibal.webp
+    tier: s
+
+  - title: Rainbow
+    artist: 'Ke$ha'
+    rating: ★★★☆☆ (6.1/10)
+    review: |
+      TBA
+    poster: assets/posters/music/Rainbow.webp
+    tier: b
+
+  - title: Warrior
+    artist: 'Ke$ha'
+    rating: ★★★★☆ (8.2/10)
+    review: |
+      TBA
+    poster: assets/posters/music/Warrior.webp
+    tier: a
+
   - title: Wednesday Season 1 - Soundtrack
     artist: 'wednesday addams'
-    rating: ★★★★☆ (9/10)
+    rating: ★★★★☆ (9.4/10)
     review: |
       TBA
     poster: assets/posters/music/Wednesday_Season_1_Soundtrack.webp
     tier: s
+
 videogames:
 
   - title: Death Must Die
