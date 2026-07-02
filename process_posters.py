@@ -98,7 +98,7 @@ def save_data_yml(data):
 # ================
 def normalize_for_matching(text):
     # Removes: < > : " / \ | ? * and all dash variants (-, –, —)
-    normalized = re.sub(r'[<>:"/\\|?*\-\u2013\u2014]', '', text)
+    normalized = re.sub(r'[.<>:"/\\|?*\-\u2013\u2014]', '', text)
     normalized = re.sub(r'[\s_]+', ' ', normalized)
     return normalized.strip().lower()
 
