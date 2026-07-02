@@ -1,3 +1,23 @@
+/**
+ * @typedef {Object} MediaItem
+ * @property {string} [title]
+ * @property {string} [rating]
+ * @property {string} [review]
+ * @property {string} [poster]
+ * @property {string} [tier]
+ * @property {boolean} [count]
+ * @property {number} [weight]
+ * @property {string} [watched]
+ * @property {string} [artist]
+ * @property {string} [series]
+ * @property {number} [series_order]
+ */
+
+/**
+ * Converts a YYYY-MM-DD string into a localized date string.
+ * @param {string} dateStr - The date string to format (e.g., "2023-10-25")
+ * @returns {string} The formatted date (e.g., "Oct 25, 2023")
+ */
 function formatDate(dateStr) {
     if (!dateStr) return '';
 
@@ -12,6 +32,13 @@ function formatDate(dateStr) {
     });
 }
 
+/**
+ * Creates a DOM element for a media card.
+ * @param {MediaItem} item - The media data object
+ * @param {number} [index=0] - The global index of the card (used for eager/lazy loading)
+ * @param {number} [eagerThreshold=8] - Number of cards to load eagerly
+ * @returns {HTMLElement} The constructed article element
+ */
 function createCard(item, index = 0, eagerThreshold = 8) {
     const card = document.createElement('article');
 
@@ -58,11 +85,22 @@ function createCard(item, index = 0, eagerThreshold = 8) {
 }
 
 // ==================== SORTING LOGIC ====================
+
+/**
+ * Extracts the numerical score from a rating string.
+ * @param {string} ratingStr - The rating string (e.g., "☆☆☆☆☆ (9/10)")
+ * @returns {number} The numerical score (e.g., 9)
+ */
 function extractRatingScore(ratingStr) {
     const match = ratingStr.match(/\((\d+(\.\d+)?)\/10\)/);
     return match ? parseFloat(match[1]) : 0;
 }
 
+/**
+ * Sorts the category data by Rating (desc), Weight (asc), and Watch Date (desc).
+ * @param {MediaItem[]} data - The array of media items
+ * @returns {MediaItem[]} A new, sorted array of media items
+ */
 function sortCategoryData(data) {
     return [...data].sort((a, b) => {
         // Highest rating first
@@ -83,6 +121,11 @@ function sortCategoryData(data) {
 }
 
 // ==================== COLLAPSIBLE TIERS ====================
+
+/**
+ * Initializes click listeners for all tier headers to toggle their grid visibility.
+ * @returns {void}
+ */
 function setupCollapsibleTiers() {
     const tierHeaders = document.querySelectorAll('.tier-header');
 
@@ -117,6 +160,11 @@ function setupCollapsibleTiers() {
 }
 
 // ==================== SEARCH BAR ====================
+
+/**
+ * Initializes the search input listener to filter cards and auto-expand unranked tiers.
+ * @returns {void}
+ */
 function setupSearch() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
@@ -187,6 +235,11 @@ function setupSearch() {
 }
 
 // ==================== POPULATE CARDS ====================
+
+/**
+ * Calculates how many cards are currently visible in the viewport.
+ * @returns {number} The estimated number of visible cards
+ */
 function getVisibleCardCount() {
     const grid = document.querySelector('.grid');
     if (!grid) return 8;
@@ -203,6 +256,10 @@ function getVisibleCardCount() {
     return columns * visibleRows;
 }
 
+/**
+ * Loads data, sorts it, and populates the DOM with cards.
+ * @returns {void}
+ */
 function populateCards() {
     if (!window.categoryData) {
         console.error('Failed to load category data. Check that data.yml exists and is valid.');
@@ -244,6 +301,12 @@ const modalTitle = document.getElementById('modalTitle');
 const modalReview = document.getElementById('modalReview');
 const closeBtn = document.querySelector('.close');
 
+/**
+ * Opens the review modal and populates it with data.
+ * @param {string} title - The title of the media
+ * @param {string} review - The review text
+ * @returns {void}
+ */
 function openModal(title, review) {
     modalTitle.textContent = title + ' Review';
     modalReview.innerHTML = review.replace(/\n/g, '<br>');
@@ -255,6 +318,10 @@ function openModal(title, review) {
     }, 10);
 }
 
+/**
+ * Closes the review modal and restores body scrolling.
+ * @returns {void}
+ */
 function closeModal() {
     modal.classList.remove('show');
 
