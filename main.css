@@ -82,6 +82,12 @@ h1, h2 {
     color: rgb(255, 130, 60);
 }
 
+.nav-books:hover {
+    box-shadow: 0 0 20px 8px rgba(100, 255, 218, 0.35);
+    background: rgba(100, 255, 218, 0.08);
+    color: rgb(100, 255, 218);
+}
+
 /* ============
    TIER HEADERS
    ============ */

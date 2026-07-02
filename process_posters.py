@@ -57,7 +57,7 @@ POSTERS_DIR = Path("assets/posters")
 DATA_YML_PATH = "data.yml"
 PLACEHOLDER = "assets/images/no-poster.svg"
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp", ".tiff"}
-CATEGORIES = ["movies", "tv", "anime", "music", "videogames"]
+CATEGORIES = ["movies", "tv", "anime", "music", "videogames", "books"]
 
 
 # ======================

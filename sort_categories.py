@@ -87,7 +87,7 @@ def main():
     with open(DATA_YML_PATH, 'r', encoding='utf-8') as f:
         data = yaml.load(f)
 
-    categories_to_sort = ["music", "videogames"]
+    categories_to_sort = ["music", "videogames", "books"]
     sorted_count = 0
 
     for category in categories_to_sort:

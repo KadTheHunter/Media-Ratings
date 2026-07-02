@@ -16,12 +16,21 @@ function createCard(item, index = 0, eagerThreshold = 8) {
     const card = document.createElement('article');
 
     const isMusic = window.currentCategory === 'music';
-    card.className = isMusic ? 'card music' : 'card';
+    const isBooks = window.currentCategory === 'books';
+    if (isMusic) {
+        card.className = 'card music';
+    } else if (isBooks) {
+        card.className = 'card books';
+    } else {
+        card.className = 'card';
+    }
 
     let metadataHTML = '';
     if (isMusic && item.artist) {
         metadataHTML = `<p class="card-date">Artist: ${item.artist}</p>`;
-    } else if (!isMusic && item.watched) {
+    } else if (isBooks && item.series) {
+        metadataHTML = `<p class="card-date">${item.series} #${item.series_order}</p>`;
+    } else if (!isMusic && !isBooks && item.watched) {
         metadataHTML = `<p class="card-date">Finished Watching:<br>${formatDate(item.watched)}</p>`;
     }
 
