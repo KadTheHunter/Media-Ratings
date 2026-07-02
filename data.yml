@@ -9551,3 +9551,13 @@ videogames:
       TBA
     poster: assets/posters/videogames/Death_Must_Die.webp
     tier: s
+books:
+
+  - title: 'The Screaming Staircase'
+    series: 'Lockwood & Co.'
+    series_order: 1
+    rating: ★★★★☆ (9.7/10)
+    review: |
+      TBA
+    poster: assets/posters/books/The_Screaming_Staircase.webp
+    tier: s
