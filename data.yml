@@ -6760,11 +6760,11 @@ tv:
     watched: ''
 
   - title: Ahsoka
-    rating: ☆☆☆☆☆ (0/10)
+    rating: "6.3"
     review: |
       TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+    poster: assets/posters/tv/Ahsoka.webp
+    tier: b
     watched: ''
 
   - title: Alcatraz
@@ -6808,11 +6808,11 @@ tv:
     watched: ''
 
   - title: Andor
-    rating: ☆☆☆☆☆ (0/10)
+    rating: "7.1"
     review: |
       TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+    poster: assets/posters/tv/Andor.webp
+    tier: a
     watched: ''
 
   - title: The Andy Griffith Show
@@ -6832,11 +6832,11 @@ tv:
     watched: ''
 
   - title: As Time Goes By
-    rating: ☆☆☆☆☆ (0/10)
+    rating: "8.8"
     review: |
       TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+    poster: assets/posters/tv/As_Time_Goes_By.webp
+    tier: a
     watched: ''
 
   - title: Ash vs Evil Dead
@@ -6920,11 +6920,11 @@ tv:
     watched: ''
 
   - title: The Big Bang Theory
-    rating: ☆☆☆☆☆ (0/10)
+    rating: "6.2"
     review: |
       TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+    poster: assets/posters/tv/The_Big_Bang_Theory.webp
+    tier: b
     watched: ''
 
   - title: Billy the Kid
@@ -7038,7 +7038,7 @@ tv:
     rating: "9.1"
     review: |
       TBA
-    poster: assets/images/no-poster.svg
+    poster: assets/posters/tv/Breaking_Bad.webp
     tier: s
     watched: ''
 
@@ -7110,7 +7110,7 @@ tv:
     rating: "9"
     review: |
       TBA
-    poster: assets/images/no-poster.svg
+    poster: assets/posters/tv/Columbo.webp
     tier: s
     watched: ''
 
