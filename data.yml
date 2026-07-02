@@ -9552,6 +9552,14 @@ music:
     poster: assets/posters/music/Cannibal.webp
     tier: s
 
+  - title: MOON E.P.
+    artist: 'M.O.O.N.'
+    rating: ★★★★☆ (9.8/10)
+    review: |
+      TBA
+    poster: assets/posters/music/MOON_EP.webp
+    tier: s
+
   - title: Rainbow
     artist: 'Ke$ha'
     rating: ★★★☆☆ (6.1/10)
