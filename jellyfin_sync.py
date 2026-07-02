@@ -3,7 +3,7 @@ import re
 import requests
 from dotenv import load_dotenv
 from ruamel.yaml import YAML
-from ruamel.yaml.scalarstring import LiteralScalarString
+from ruamel.yaml.scalarstring import LiteralScalarString, DoubleQuotedScalarString
 
 load_dotenv()
 
@@ -208,7 +208,7 @@ def main():
 
         new_entry = {
             "title": jellyfin_title,
-            "rating": "☆☆☆☆☆ (0/10)",
+            "rating": DoubleQuotedScalarString("0"),
             "review": LiteralScalarString("TBA\n"),
             "poster": poster_url,
             "tier": "unranked",

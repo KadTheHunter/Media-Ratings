@@ -65,6 +65,11 @@ function createCard(item, index = 0, eagerThreshold = 8) {
     const imgWidth = 200;
     const imgHeight = isMusic ? 200 : 300;
 
+    // Safely extract the number (works for "9.3", "9.3/10", or "☆☆☆☆☆ (9.3/10)")
+    const ratingMatch = item.rating.match(/(\d+(\.\d+)?)/);
+    const ratingNumber = ratingMatch ? parseFloat(ratingMatch[1]) : 0;
+    const percentage = (ratingNumber / 10) * 100;
+
     card.innerHTML = `
         <div class="poster-container">
             <img src="${item.poster}" 
@@ -75,7 +80,9 @@ function createCard(item, index = 0, eagerThreshold = 8) {
         </div>
         <div class="card-content">
             <h3 class="card-title">${item.title}</h3>
-            <p class="card-rating">${item.rating}</p>
+            <div class="card-rating">
+                <span class="star-rating" style="--rating: ${percentage}%">★★★★★</span> (${ratingNumber}/10)
+            </div>
             ${metadataHTML}
         </div>
     `;
@@ -92,7 +99,7 @@ function createCard(item, index = 0, eagerThreshold = 8) {
  * @returns {number} The numerical score (e.g., 9)
  */
 function extractRatingScore(ratingStr) {
-    const match = ratingStr.match(/\((\d+(\.\d+)?)\/10\)/);
+    const match = ratingStr.match(/(\d+(\.\d+)?)/);
     return match ? parseFloat(match[1]) : 0;
 }
 
