@@ -265,6 +265,10 @@ h1, h2 {
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .modal.show {
@@ -276,22 +280,19 @@ h1, h2 {
     color: #e8e6e3;
     padding: 20px;
     border-radius: 8px;
-    width: 80%;
+    width: 100%;
     max-width: 600px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, calc(-50% - 20px));
     max-height: 85vh;
     overflow-y: auto;
     opacity: 0;
+    transform: translateY(-20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     margin: 0;
 }
 
 .modal.show .modal-content {
     opacity: 1;
-    transform: translate(-50%, -50%);
+    transform: translateY(0);
 }
 
 #modalReview {
@@ -536,12 +537,6 @@ h1, h2 {
 
     .card {
         max-width: 100%;
-    }
-
-    .modal-content {
-        width: 95%;
-        margin: 10% auto;
-        padding: 15px;
     }
 
     .main-nav {

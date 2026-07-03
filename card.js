@@ -382,7 +382,7 @@ const closeBtn = document.querySelector('.close');
 function openModal(title, review) {
     modalTitle.textContent = title + ' Review';
     modalReview.innerHTML = review.replace(/\n/g, '<br>');
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 
     const url = new URL(window.location);
