@@ -27,7 +27,7 @@ h1, h2 {
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 2.5rem;
-    padding: 1.25rem 1rem;
+    padding: 1.5rem 1rem;
     background: #1e2122;
     position: sticky;
     top: 0;
@@ -48,43 +48,43 @@ h1, h2 {
 }
 
 .nav-home:hover {
-    box-shadow: 0 0 20px 8px rgba(100, 181, 246, 0.35);
+    box-shadow: 0 0 16px 8px rgba(100, 181, 246, 0.35);
     background: rgba(100, 181, 246, 0.08);
     color: rgb(100, 181, 246);
 }
 
 .nav-movies:hover {
-    box-shadow: 0 0 20px 8px rgba(255, 223, 128, 0.35);
+    box-shadow: 0 0 16px 8px rgba(255, 223, 128, 0.35);
     background: rgba(255, 223, 128, 0.08);
     color: rgb(255, 223, 128);
 }
 
 .nav-tv:hover {
-    box-shadow: 0 0 20px 8px rgba(173, 255, 173, 0.35);
+    box-shadow: 0 0 16px 8px rgba(173, 255, 173, 0.35);
     background: rgba(173, 255, 173, 0.08);
     color: rgb(173, 255, 173);
 }
 
 .nav-anime:hover {
-    box-shadow: 0 0 20px 8px rgba(255, 182, 193, 0.35);
+    box-shadow: 0 0 16px 8px rgba(255, 182, 193, 0.35);
     background: rgba(255, 182, 193, 0.08);
     color: rgb(255, 182, 193);
 }
 
 .nav-music:hover {
-    box-shadow: 0 0 20px 8px rgba(180, 130, 255, 0.35);
+    box-shadow: 0 0 16px 8px rgba(180, 130, 255, 0.35);
     background: rgba(180, 130, 255, 0.08);
     color: rgb(180, 130, 255);
 }
 
 .nav-videogames:hover {
-    box-shadow: 0 0 20px 8px rgba(255, 130, 60, 0.35);
+    box-shadow: 0 0 16px 8px rgba(255, 130, 60, 0.35);
     background: rgba(255, 130, 60, 0.08);
     color: rgb(255, 130, 60);
 }
 
 .nav-books:hover {
-    box-shadow: 0 0 20px 8px rgba(100, 255, 218, 0.35);
+    box-shadow: 0 0 16px 8px rgba(100, 255, 218, 0.35);
     background: rgba(100, 255, 218, 0.08);
     color: rgb(100, 255, 218);
 }
