@@ -195,69 +195,122 @@ function setupSearch() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
 
-    const unrankedHeader = document.getElementById('unranked-header');
-    const unrankedGrid = document.getElementById('unranked-tier');
-    let wasCollapsed = false;
-    let userManuallyOpened = false;
+    const tierGrids = document.querySelectorAll('.grid');
+    const preSearchState = new Map();
+    let isSearching = false;
 
-    searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase().trim();
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search');
+    if (searchQuery) {
+        searchInput.value = searchQuery;
+    }
+
+    function performSearch(searchTerm) {
         let totalVisible = 0;
-        let unrankedHasMatches = false;
 
-        document.querySelectorAll('.card').forEach(card => {
-            const title = card.querySelector('.card-title').textContent.toLowerCase();
-            const matches = searchTerm === '' || title.includes(searchTerm);
-            card.style.display = matches ? '' : 'none';
-            if (matches) totalVisible++;
-        });
-
-        if (unrankedGrid && unrankedHeader) {
-            const unrankedCards = unrankedGrid.querySelectorAll('.card');
-            const visibleUnranked = Array.from(unrankedCards).filter(card =>
-                card.style.display !== 'none'
-            ).length;
-
-            unrankedHasMatches = visibleUnranked > 0;
-            const isCollapsed = unrankedGrid.classList.contains('collapsed');
-
-            if (searchTerm !== '' && unrankedHasMatches && isCollapsed && !userManuallyOpened) {
-                wasCollapsed = true;
-                unrankedGrid.style.display = 'grid';
-                unrankedGrid.classList.remove('collapsed');
-                unrankedHeader.textContent = unrankedHeader.textContent.replace('▶', '▼');
-            } else if (searchTerm === '' && wasCollapsed && !userManuallyOpened) {
-                unrankedGrid.classList.add('collapsed');
-                unrankedHeader.textContent = unrankedHeader.textContent.replace('▼', '▶');
-                setTimeout(() => {
-                    if (unrankedGrid.classList.contains('collapsed')) {
-                        unrankedGrid.style.display = 'none';
-                    }
-                }, 400);
-            }
+        const url = new URL(window.location);
+        if (searchTerm) {
+            url.searchParams.set('search', searchTerm);
+        } else {
+            url.searchParams.delete('search');
         }
+        window.history.replaceState({}, '', url);
+
+        tierGrids.forEach(grid => {
+            const cards = grid.querySelectorAll('.card');
+            let gridHasVisibleCard = false;
+
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const matches = searchTerm === '' || title.includes(searchTerm);
+                card.style.display = matches ? '' : 'none';
+                if (matches) {
+                    totalVisible++;
+                    gridHasVisibleCard = true;
+                }
+            });
+
+            const header = document.getElementById(grid.id + '-header');
+
+            if (searchTerm !== '') {
+                if (gridHasVisibleCard && grid.classList.contains('collapsed')) {
+                    grid.classList.remove('collapsed');
+                    grid.style.display = 'grid';
+                    if (header) header.classList.remove('collapsed');
+                }
+            } else {
+                const wasCollapsed = preSearchState.get(grid.id);
+
+                if (wasCollapsed && !grid.classList.contains('collapsed')) {
+                    grid.classList.add('collapsed');
+                    if (header) header.classList.add('collapsed');
+                    setTimeout(() => {
+                        if (grid.classList.contains('collapsed')) grid.style.display = 'none';
+                    }, 300);
+                } else if (!wasCollapsed && grid.classList.contains('collapsed')) {
+                    grid.classList.remove('collapsed');
+                    grid.style.display = 'grid';
+                    if (header) header.classList.remove('collapsed');
+                }
+            }
+        });
 
         const totalCount = document.getElementById('total-count');
         if (totalCount) {
-            if (searchTerm === '') {
-                totalCount.textContent = window.categoryData.length;
-            } else {
-                totalCount.textContent = totalVisible;
-            }
+            totalCount.textContent = searchTerm === '' ? window.categoryData.length : totalVisible;
         }
+    }
+
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase().trim();
+
+        if (searchTerm !== '' && !isSearching) {
+            tierGrids.forEach(grid => {
+                preSearchState.set(grid.id, grid.classList.contains('collapsed'));
+            });
+            isSearching = true;
+        }
+
+        if (searchTerm === '') {
+            isSearching = false;
+        }
+
+        performSearch(searchTerm);
     });
 
-    if (unrankedHeader && unrankedGrid) {
-        unrankedHeader.addEventListener('click', () => {
-            const isCollapsed = unrankedGrid.classList.contains('collapsed');
-            if (isCollapsed) {
-                userManuallyOpened = true;
-                wasCollapsed = false;
-            } else {
-                userManuallyOpened = false;
-            }
-        });
+    if (searchQuery) {
+        performSearch(searchQuery.toLowerCase().trim());
     }
+}
+
+/**
+ * Checks URL for item parameter and scrolls to/highlights that card
+ * @return {void}
+ */
+function highlightItemFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemTitle = urlParams.get('item');
+
+    if (!itemTitle) return;
+
+    const decodedTitle = decodeURIComponent(itemTitle).toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const cardTitle = card.querySelector('.card-title').textContent.toLowerCase();
+        if (cardTitle === decodedTitle || cardTitle.includes(decodedTitle)) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            card.style.transition = 'all 0.3s ease';
+            card.style.boxShadow = '0 0 25px 10px var(--accent-glow)';
+            card.style.transform = 'scale(1.05)';
+
+            setTimeout(() => {
+                card.style.boxShadow = '';
+                card.style.transform = '';
+            }, 1500);
+        }
+    });
 }
 
 // ==================== POPULATE CARDS ====================
@@ -319,6 +372,7 @@ function populateCards() {
 
     setupCollapsibleTiers();
     setupSearch();
+    highlightItemFromURL();
 }
 
 // ==================== MODAL ====================
@@ -339,9 +393,11 @@ function openModal(title, review) {
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 
-    setTimeout(() => {
-        modal.classList.add('show');
-    }, 10);
+    const url = new URL(window.location);
+    url.searchParams.set('item', title);
+    window.history.replaceState({}, '', url);
+
+    setTimeout(() => { modal.classList.add('show'); }, 10);
 }
 
 /**
@@ -351,7 +407,10 @@ function openModal(title, review) {
 function closeModal() {
     modal.classList.remove('show');
 
-    // Wait for animation to finish before hiding
+    const url = new URL(window.location);
+    url.searchParams.delete('item');
+    window.history.replaceState({}, '', url);
+
     setTimeout(() => {
         modal.style.display = 'none';
         document.body.style.overflow = '';
