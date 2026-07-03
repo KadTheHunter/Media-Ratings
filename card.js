@@ -294,23 +294,15 @@ function highlightItemFromURL() {
     if (!itemTitle) return;
 
     const decodedTitle = decodeURIComponent(itemTitle).toLowerCase();
-    const cards = document.querySelectorAll('.card');
 
-    cards.forEach(card => {
-        const cardTitle = card.querySelector('.card-title').textContent.toLowerCase();
-        if (cardTitle === decodedTitle || cardTitle.includes(decodedTitle)) {
-            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const matchedItem = window.categoryData.find(item =>
+        item.title.toLowerCase() === decodedTitle ||
+        item.title.toLowerCase().includes(decodedTitle)
+    );
 
-            card.style.transition = 'all 0.3s ease';
-            card.style.boxShadow = '0 0 25px 10px var(--accent-glow)';
-            card.style.transform = 'scale(1.05)';
-
-            setTimeout(() => {
-                card.style.boxShadow = '';
-                card.style.transform = '';
-            }, 1500);
-        }
-    });
+    if (matchedItem) {
+        openModal(matchedItem.title, matchedItem.review);
+    }
 }
 
 // ==================== POPULATE CARDS ====================
