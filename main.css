@@ -440,6 +440,19 @@ h1, h2 {
     border-color: var(--accent-glow);
 }
 
+.search-hint {
+    display: block;
+    margin-top: 6px;
+    color: #8b949e;
+    font-size: 0.75rem;
+}
+
+.search-hint code {
+    background: #30363d;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
 .back-to-top {
     position: fixed;
     bottom: 30px;

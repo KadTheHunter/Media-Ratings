@@ -11,6 +11,7 @@
  * @property {string} [artist]
  * @property {string} [series]
  * @property {number} [series_order]
+ * @property {number} [tags]
  */
 
 /**
@@ -44,10 +45,13 @@ function createCard(item, index = 0, eagerThreshold = 8) {
 
     const isMusic = window.currentCategory === 'music';
     const isBooks = window.currentCategory === 'books';
+    const isGames = window.currentCategory === 'videogames';
     if (isMusic) {
         card.className = 'card music';
     } else if (isBooks) {
         card.className = 'card books';
+    } else if (isGames) {
+        card.className = 'card games';
     } else {
         card.className = 'card';
     }
@@ -57,7 +61,9 @@ function createCard(item, index = 0, eagerThreshold = 8) {
         metadataHTML = `<p class="card-date">Artist: ${item.artist}</p>`;
     } else if (isBooks && item.series) {
         metadataHTML = `<p class="card-date">${item.series} #${item.series_order}</p>`;
-    } else if (!isMusic && !isBooks && item.watched) {
+    } else if (isGames && item.tags) {
+        metadataHTML = `<p class="card-date">${item.tags.join(', ')}</p>`;
+    } else if (!isMusic && !isBooks && !isGames && item.watched) {
         metadataHTML = `<p class="card-date">Finished Watching:<br>${formatDate(item.watched)}</p>`;
     }
 
@@ -222,7 +228,61 @@ function setupSearch() {
 
             cards.forEach(card => {
                 const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const matches = searchTerm === '' || title.includes(searchTerm);
+                const itemData = window.categoryData.find(item => item.title.toLowerCase() === title);
+                const review = itemData ? itemData.review.toLowerCase() : '';
+
+                let actualSearchTerm = searchTerm;
+                let searchMode = 'default';
+
+                if (searchTerm.startsWith('r:')) {
+                    searchMode = 'review';
+                    actualSearchTerm = searchTerm.slice(2);
+                } else if (searchTerm.startsWith('m:')) {
+                    searchMode = 'metadata';
+                    actualSearchTerm = searchTerm.slice(2);
+                }
+
+                let matches = false;
+
+                if (actualSearchTerm === '') {
+                    matches = true;
+                } else if (searchMode === 'review') {
+                    matches = review.includes(actualSearchTerm);
+                } else if (searchMode === 'metadata') {
+                    if (itemData) {
+                        if (itemData.watched) {
+                            const [year, month, day] = itemData.watched.split('-').map(Number);
+                            const dateObj = new Date(year, month - 1, day);
+
+                            const searchTargets = [
+                                itemData.watched, // "2026-01-08"
+                                itemData.watched.replace(/-/g, ''), // "20260108"
+                                formatDate(itemData.watched), // "Jan 8, 2026"
+                                dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }), // "January 8, 2026"
+                                dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }), // "Jan 8, 2026"
+                                dateObj.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' }), // "1/8/2026"
+                                String(month), // "1"
+                                String(day), // "8"
+                                String(year), // "2026"
+                            ];
+
+                            matches = searchTargets.some(target =>
+                                target.toLowerCase().includes(actualSearchTerm)
+                            );
+                        } else if (itemData.artist) {
+                            matches = itemData.artist.toLowerCase().includes(actualSearchTerm);
+                        } else if (itemData.series) {
+                            matches = itemData.series.toLowerCase().includes(actualSearchTerm);
+                        } else if (itemData.tags) {
+                            matches = itemData.tags.some(tag =>
+                                tag.toLowerCase().includes(actualSearchTerm)
+                            );
+                        }
+                    }
+                } else {
+                    matches = title.includes(actualSearchTerm);
+                }
+
                 card.style.display = matches ? '' : 'none';
                 if (matches) {
                     totalVisible++;
