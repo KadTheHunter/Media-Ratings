@@ -9607,6 +9607,10 @@ videogames:
       RIP Apex Legends. You may still be running, but you're no longer the game I loved.
     poster: assets/posters/videogames/Apex_Legends.webp
     tier: b
+    tags:
+      - FPS
+      - Battle Royale
+      - Multiplayer
 
   - title: Balatro
     rating: "9.3"
@@ -9614,6 +9618,9 @@ videogames:
       TBA
     poster: assets/posters/videogames/Balatro.webp
     tier: s
+    tags:
+      - Roguelite
+      - Deck-Builder
 
   - title: "Battlefront II"
     rating: "9"
@@ -9621,6 +9628,10 @@ videogames:
       TBA
     poster: assets/posters/videogames/Battlefront_II.webp
     tier: s
+    tags:
+      - FPS
+      - Star Wars
+      - Multiplayer
 
   - title: Death Must Die
     rating: "9.4"
@@ -9628,6 +9639,9 @@ videogames:
       TBA
     poster: assets/posters/videogames/Death_Must_Die.webp
     tier: s
+    tags:
+      - Roguelite
+      - Top-Down
 
   - title: Hogwarts Legacy
     rating: "9.5"
@@ -9645,6 +9659,9 @@ videogames:
       Overall one of the best modern RPGs I've ever played, and I sincerely hope we get an expansion for it, or even Hogwarts Legacy 2!
     poster: assets/posters/videogames/Hogwarts_Legacy.webp
     tier: s
+    tags:
+      - RPG
+      - Magic
 
   - title: Minecraft
     rating: "10"
@@ -9652,6 +9669,9 @@ videogames:
       TBA
     poster: assets/posters/videogames/Minecraft.webp
     tier: s
+    tags:
+      - Sandbox
+      - Building
 
   - title: Slay the Spire
     rating: "9.1"
@@ -9659,6 +9679,9 @@ videogames:
       TBA
     poster: assets/posters/videogames/Slay_the_Spire.webp
     tier: s
+    tags:
+      - Dungeon Crawler
+      - Deck-Builder
 
   - title: Titanfall 2
     rating: "8.7"
@@ -9666,6 +9689,10 @@ videogames:
       TBA
     poster: assets/posters/videogames/Titanfall_2.webp
     tier: a
+    tags:
+      - FPS
+      - Mechs
+      - Movement
 
 books:
 
