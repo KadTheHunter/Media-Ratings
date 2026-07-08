@@ -5837,6 +5837,7 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
 tv:
 
   - title: 3 Body Problem
@@ -8016,6 +8017,7 @@ tv:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
 anime:
 
   - title: 7Seeds
@@ -8361,6 +8363,7 @@ anime:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
 music:
 
   - title: Animal
