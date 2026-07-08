@@ -166,7 +166,7 @@
           "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
           "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
         },
-        "required": ["title", "series", "series_order", "rating", "review", "poster", "tier"]
+        "required": ["title", "rating", "review", "poster", "tier"]
       }
     }
   }
