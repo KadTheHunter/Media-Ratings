@@ -8552,3 +8552,10 @@ books:
       TBA
     poster: assets/posters/books/The_Whispering_Skull.webp
     tier: s
+
+  - title: 'Sender Unknown'
+    rating: "9.8"
+    review: |
+      TBA
+    poster: assets/posters/books/Sender_Unknown.webp
+    tier: s
