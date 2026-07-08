@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Media Ratings Schema",
+  "description": "Schema for media rating entries across all categories",
+  "type": "object",
+  "properties": {
+    "movies": {
+      "type": "array",
+      "description": "Movies category",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string", "description": "Movie Title", "default": "" },
+          "rating": { "type": "string", "description": "Rating (e.g., '8.5', '9')", "default": "" },
+          "review": { "type": "string", "description": "Written Review", "default": "|\n      " },
+          "poster": { "type": "string", "description": "Poster Path", "default": "" },
+          "tier": {
+            "type": "string",
+            "enum": ["s", "a", "b", "c", "d", "f","unranked"],
+            "description": "Rating Tier",
+            "default": ""
+          },
+          "watched": {
+            "type": "string",
+            "description": "Date watched (YYYY-MM-DD)",
+            "examples": ["2026-01-08", "2025-12-25"],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$|^$",
+            "default": ""
+          },
+          "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+        },
+        "required": ["title", "rating", "review", "poster", "tier"]
+      }
+    },
+    "tv": {
+      "type": "array",
+      "description": "TV shows category",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string", "description": "TV Show Title", "default": "" },
+          "rating": { "type": "string", "description": "Rating (e.g., '8.5', '9')", "default": "" },
+          "review": { "type": "string", "description": "Written Review", "default": "|\n      " },
+          "poster": { "type": "string", "description": "Poster Path", "default": "" },
+          "tier": {
+            "type": "string",
+            "enum": ["s", "a", "b", "c", "d", "f","unranked"],
+            "description": "Rating Tier",
+            "default": ""
+          },
+          "watched": {
+            "type": "string",
+            "description": "Date watched (YYYY-MM-DD)",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$|^$",
+            "default": ""
+          },
+          "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+        },
+        "required": ["title", "rating", "review", "poster", "tier"]
+      }
+    },
+    "anime": {
+      "type": "array",
+      "description": "Anime category",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string", "description": "Anime Title", "default": "" },
+          "rating": { "type": "string", "description": "Rating (e.g., '8.5', '9')", "default": "" },
+          "review": { "type": "string", "description": "Written Review", "default": "|\n      " },
+          "poster": { "type": "string", "description": "Poster Path", "default": "" },
+          "tier": {
+            "type": "string",
+            "enum": ["s", "a", "b", "c", "d", "f","unranked"],
+            "description": "Rating Tier",
+            "default": ""
+          },
+          "watched": {
+            "type": "string",
+            "description": "Date watched (YYYY-MM-DD)",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$|^$",
+            "default": ""
+          },
+          "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+        },
+        "required": ["title", "rating", "review", "poster", "tier"]
+      }
+    },
+    "music": {
+      "type": "array",
+      "description": "Music albums category",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string", "description": "Album Title", "default": "" },
+          "artist": { "type": "string", "description": "Artist Name", "default": "" },
+          "rating": { "type": "string", "description": "Rating (e.g., '8.5', '9')", "default": "" },
+          "review": { "type": "string", "description": "Written Review", "default": "|\n      " },
+          "poster": { "type": "string", "description": "Poster Path", "default": "" },
+          "tier": {
+            "type": "string",
+            "enum": ["s", "a", "b", "c", "d", "f","unranked"],
+            "description": "Rating Tier",
+            "default": ""
+          },
+          "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+        },
+        "required": ["title", "artist", "rating", "review", "poster", "tier"]
+      }
+    },
+    "videogames": {
+      "type": "array",
+      "description": "Video games category",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string", "description": "Videogame Title", "default": "" },
+          "rating": { "type": "string", "description": "Rating (e.g., '8.5', '9')", "default": "" },
+          "review": { "type": "string", "description": "Written Review", "default": "|\n      " },
+          "poster": { "type": "string", "description": "Poster Path", "default": "" },
+          "tier": {
+            "type": "string",
+            "enum": ["s", "a", "b", "c", "d", "f","unranked"],
+            "description": "Rating Tier",
+            "default": ""
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string", "description": "Individual tags"},
+            "description": "Genre tags"
+          },
+          "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+        },
+        "required": ["title", "rating", "review", "poster", "tier", "tags"]
+      }
+    },
+    "books": {
+      "type": "array",
+      "description": "Books category",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string", "description": "Book Title", "default": "" },
+          "series": { "type": "string", "description": "Series Name", "default": "" },
+          "series_order": { "type": "number", "description": "Position in Series", "default": "" },
+          "rating": { "type": "string", "description": "Rating (e.g., '8.5', '9')", "default": "" },
+          "review": { "type": "string", "description": "Written Review", "default": "|\n      " },
+          "poster": { "type": "string", "description": "Poster Path", "default": "" },
+          "tier": {
+            "type": "string",
+            "enum": ["s", "a", "b", "c", "d", "f","unranked"],
+            "description": "Rating Tier",
+            "default": ""
+          },
+          "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+        },
+        "required": ["title", "series", "series_order", "rating", "review", "poster", "tier"]
+      }
+    }
+  }
+}
