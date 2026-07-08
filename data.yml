@@ -8543,3 +8543,12 @@ books:
       TBA
     poster: assets/posters/books/The_Screaming_Staircase.webp
     tier: s
+
+  - title: 'The Whispering Skull'
+    series: 'Lockwood & Co.'
+    series_order: 2
+    rating: "9.7"
+    review: |
+      TBA
+    poster: assets/posters/books/The_Whispering_Skull.webp
+    tier: s
