@@ -414,6 +414,85 @@ h1, h2 {
     margin-top: auto;
 }
 
+/* =================
+   RAMBLINGS SECTION
+   ================= */
+.ramblings-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+.ramblings-header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #c9d1d9;
+}
+
+.ramblings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.rambling-card {
+    background: #161b22;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.rambling-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px 10px var(--accent-glow);
+}
+
+.rambling-sub {
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.rambling-title {
+    font-size: 1.4rem;
+    margin: 0 0 1rem 0;
+    color: #e8e6e3;
+}
+
+.rambling-content {
+    color: #c9d1d9;
+    line-height: 1.7;
+    flex-grow: 1;
+}
+
+.rambling-content p {
+    margin: 0 0 1rem 0;
+}
+
+.rambling-content p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .ramblings-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .ramblings-header {
+        font-size: 1.6rem;
+    }
+
+    .rambling-title {
+        font-size: 1.2rem;
+    }
+}
+
 /* =========
    UTILITIES
    ========= */
