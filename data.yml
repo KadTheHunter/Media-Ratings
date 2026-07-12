@@ -7900,11 +7900,12 @@ tv:
     tier: unranked
 
   - title: Vikings
-    rating: "0"
+    rating: "9.1"
     review: |
-      TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+      Please hold, thoughts pending...
+    poster: assets/posters/tv/Vikings.webp
+    tier: s
+    watched: "2026-07-12"
 
   - title: 'Vikings: Valhalla'
     rating: "0"
