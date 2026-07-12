@@ -6162,6 +6162,18 @@ tv:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: 'The Boys'
+    rating: "2.7"
+    review: |
+      The Boys (or as I call it, "The Goys") had about one season of genuinely interesting story, before it devolved into "the writers thinly disguised fetish".
+      
+      There are very few shows that I wish had turned out better, and The Boys is one of them. It had it all: superheroes, gore, dark humor, everything, and yet it still got flushed down the drain by Eric Kripke, who just couldn't control himself long enough to make a halfway decent show.
+      
+      The one funny thing about it, is that by its end The Boys became the very thing it originally mocked: a multi-media superhero franchise, slurped up by lobotomized retards.
+    poster: assets/posters/tv/The_Boys.webp
+    tier: d
+    count: false
+
   - title: Breaking Bad
     rating: "9.1"
     review: |
