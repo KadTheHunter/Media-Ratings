@@ -355,10 +355,15 @@ function highlightItemFromURL() {
 
     const decodedTitle = decodeURIComponent(itemTitle).toLowerCase();
 
-    const matchedItem = window.categoryData.find(item =>
-        item.title.toLowerCase() === decodedTitle ||
-        item.title.toLowerCase().includes(decodedTitle)
+    let matchedItem = window.categoryData.find(item =>
+        item.title.toLowerCase() === decodedTitle
     );
+
+    if (!matchedItem) {
+        matchedItem = window.categoryData.find(item =>
+            item.title.toLowerCase().includes(decodedTitle)
+        );
+    }
 
     if (matchedItem) {
         openModal(matchedItem.title, matchedItem.review);
