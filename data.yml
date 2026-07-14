@@ -4867,11 +4867,22 @@ movies:
     tier: unranked
 
   - title: Spider-Man
-    rating: "0"
+    rating: "8.9"
     review: |
-      TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+      I've always seen the memes that originated from this original Spider-Man movie, but nothing could have prepared me for how good it actually was.
+      
+      Maybe it's just relative to modern Spider-Man media, but this movie is (to me) Spider-Man made perfect. Everything from his love for MJ, to his spider-suit, to his often awkwardly goofy but ultimately lovable lines- it all ties together to make THE Spider-Man.
+      
+      Unfortunately due to my own bias against superhero media, I can't bring myself to put it in S tier, but despite that I'm putting it as close as I possibly can, at the very top of A tier (8.9).
+      
+      <small><em>
+      Spider-Man: You know who I am.
+      MJ: I do?
+      Spider-Man: Your friendly neighborhood Spider-Man! *jumps off the edge*
+      </em></small>
+    poster: assets/posters/movies/Spider-Man.webp
+    tier: a
+    watched: "2026-07-13"
 
   - title: Spider-Man 2
     rating: "0"
