@@ -436,6 +436,7 @@ function populateCards() {
 const modal = document.getElementById('reviewModal');
 const modalTitle = document.getElementById('modalTitle');
 const modalReview = document.getElementById('modalReview');
+const originalDocumentTitle = document.title;
 const closeBtn = document.querySelector('.close');
 
 /**
@@ -449,6 +450,7 @@ function openModal(title, review) {
     modalReview.innerHTML = review.replace(/\n/g, '<br>');
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+    document.title = `${title} Review | Kad's Media Ratings`;
 
     const url = new URL(window.location);
     url.searchParams.set('item', title);
@@ -463,6 +465,8 @@ function openModal(title, review) {
  */
 function closeModal() {
     modal.classList.remove('show');
+
+    document.title = originalDocumentTitle;
 
     const url = new URL(window.location);
     url.searchParams.delete('item');
