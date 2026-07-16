@@ -432,6 +432,26 @@ function populateCards() {
     highlightItemFromURL();
 }
 
+
+
+const surpriseBtn = document.getElementById('surpriseBtn');
+if (surpriseBtn) {
+    surpriseBtn.addEventListener('click', () => {
+        if (!window.categoryData) return;
+
+        const goodItems = window.categoryData.filter(item =>
+            ['s', 'a', 'b'].includes(item.tier?.toLowerCase())
+        );
+
+        if (goodItems.length === 0) return;
+
+        const randomItem = goodItems[Math.floor(Math.random() * goodItems.length)];
+        openModal(randomItem.title, randomItem.review);
+    });
+}
+
+
+
 // ==================== MODAL ====================
 const modal = document.getElementById('reviewModal');
 const modalTitle = document.getElementById('modalTitle');
