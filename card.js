@@ -152,6 +152,8 @@ function sortCategoryData(data) {
 function setupCollapsibleTiers() {
     const tierHeaders = document.querySelectorAll('.tier-header');
 
+    const savedState = JSON.parse(localStorage.getItem('tierCollapseState') || '{}');
+
     tierHeaders.forEach(header => {
         header.setAttribute('tabindex', '0');
         header.setAttribute('role', 'button');
@@ -162,31 +164,36 @@ function setupCollapsibleTiers() {
             }
         };
 
+        const gridId = header.id.replace('-header', '');
+        const grid = document.getElementById(gridId);
+
+        if (savedState[gridId] === true && grid) {
+            grid.classList.add('collapsed');
+            header.classList.add('collapsed');
+            grid.style.display = 'none';
+        }
+
         header.addEventListener('click', function(e) {
             if (e.target.closest('a, button')) return;
-
-            const gridId = this.id.replace('-header', '');
-            const grid = document.getElementById(gridId);
-
             if (!grid) return;
 
             const isCollapsed = grid.classList.contains('collapsed');
 
             if (isCollapsed) {
                 grid.classList.remove('collapsed');
-                this.classList.remove('collapsed');
-                setTimeout(() => {
-                    grid.style.display = 'grid';
-                }, 10);
+                header.classList.remove('collapsed');
+                setTimeout(() => { grid.style.display = 'grid'; }, 10);
+                savedState[gridId] = false;
             } else {
                 grid.classList.add('collapsed');
-                this.classList.add('collapsed');
+                header.classList.add('collapsed');
                 setTimeout(() => {
-                    if (grid.classList.contains('collapsed')) {
-                        grid.style.display = 'none';
-                    }
+                    if (grid.classList.contains('collapsed')) grid.style.display = 'none';
                 }, 300);
+                savedState[gridId] = true;
             }
+
+            localStorage.setItem('tierCollapseState', JSON.stringify(savedState));
         });
     });
 }
