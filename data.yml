@@ -1,4 +1,12 @@
 # yaml-language-server: $schema=./schema.json
+category_dates:
+  movies: "2026-07-14"
+  tv: "2026-07-12"
+  anime: "2026-06-28"
+  music: "2026-07-02"
+  videogames: "2026-07-04"
+  books: "2026-07-07"
+
 movies:
 
   - title: '9'

@@ -426,6 +426,12 @@ function populateCards() {
 
     const totalCount = document.getElementById('total-count');
     const libraryCount = document.getElementById('library-count');
+    const categoryDateEl = document.getElementById('category-date');
+    if (categoryDateEl && window.categoryDate) {
+        categoryDateEl.textContent = formatDate(window.categoryDate);
+    } else if (categoryDateEl) {
+        categoryDateEl.textContent = 'Unknown';
+    }
 
     if (totalCount) {
         const ratedItems = window.categoryData.filter(item => item.tier !== 'unranked');

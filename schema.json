@@ -4,6 +4,18 @@
   "description": "Schema for media rating entries across all categories",
   "type": "object",
   "properties": {
+    "category_dates": {
+      "type": "object",
+      "description": "Last updated date for each category",
+      "properties": {
+        "movies": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "tv": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "anime": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "music": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "videogames": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "books": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      }
+    },
     "movies": {
       "type": "array",
       "description": "Movies category",
