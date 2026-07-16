@@ -414,6 +414,61 @@ h1, h2 {
     margin-top: auto;
 }
 
+/* ==========
+STAT CARDS
+========== */
+.stats-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+.stats-header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #c9d1d9;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-glow);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: #8b949e;
+}
+
+.stat-card p {
+    margin: 0;
+    font-size: 1rem;
+    color: #e8e6e3;
+    font-weight: 500;
+}
+
 /* =================
    RAMBLINGS SECTION
    ================= */
@@ -629,6 +684,13 @@ h1, h2 {
     body {
         padding: 10px;
     }
+
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .stats-header { font-size: 1.6rem; }
+    .stat-card { padding: 1.2rem; }
+    .stat-icon { font-size: 1.8rem; }
+    .stat-card h3 { font-size: 1rem; }
+    .stat-card p { font-size: 0.9rem; }
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
@@ -678,4 +740,13 @@ h1, h2 {
     .category-card h2 { font-size: 1.5rem; margin: 0.5rem 0; }
     .category-card p { flex-grow: 0; font-size: 0.85rem; padding: 0 1rem; }
     .category-card .enter { font-size: 0.9rem; padding: 0.75rem;}
+
+
+    .stats-section { margin: 2rem auto; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .stats-header { font-size: 1.4rem; margin-bottom: 1.5rem; }
+    .stat-card { padding: 1rem; }
+    .stat-icon { font-size: 1.6rem; margin-bottom: 0.3rem; }
+    .stat-card h3 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .stat-card p { font-size: 0.85rem; }
 }

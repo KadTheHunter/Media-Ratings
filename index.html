@@ -95,6 +95,32 @@
         </a>
     </section>
 
+    <section class="stats-section">
+        <h2 class="stats-header">Library Snapshot</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-icon">📈</span>
+                <h3>Average Rating</h3>
+                <p id="stat-avg">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">📅</span>
+                <h3>Most Recent</h3>
+                <p id="stat-recent">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">📥</span>
+                <h3>Unranked</h3>
+                <p id="stat-unranked">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🗂️</span>
+                <h3>Total Entries</h3>
+                <p id="stat-total">Loading...</p>
+            </div>
+        </div>
+    </section>
+
     <section class="ramblings-section">
         <h2 class="ramblings-header">Ramblings & Musings</h2>
 
@@ -122,6 +148,48 @@
         </div>
     </section>
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.1/dist/js-yaml.min.js"></script>
+<script>
+    fetch('data.yml')
+        .then(response => response.text())
+        .then(text => {
+            const data = jsyaml.load(text);
+            if (!data) return;
+
+            const allItems = Object.values(data).flat();
+            const ratedItems = allItems.filter(item => item.tier !== 'unranked' && item.rating !== "0");
+
+            document.getElementById('stat-total').textContent = `${allItems.length} Entries`;
+
+            const unrankedCount = allItems.filter(item => item.tier === 'unranked').length;
+            document.getElementById('stat-unranked').textContent = `${unrankedCount} Pending`;
+
+            const datedItems = allItems.filter(item => item.watched && item.watched.trim() !== '');
+            if (datedItems.length > 0) {
+                datedItems.sort((a, b) => new Date(b.watched) - new Date(a.watched));
+                const recent = datedItems[0];
+                const [year, month, day] = recent.watched.split('-').map(Number);
+                const dateObj = new Date(year, month - 1, day);
+                const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                document.getElementById('stat-recent').textContent = `${recent.title} (${formattedDate})`;
+            } else {
+                document.getElementById('stat-recent').textContent = "None yet";
+            }
+
+            if (ratedItems.length > 0) {
+                const totalScore = ratedItems.reduce((sum, item) => {
+                    const match = item.rating.match(/(\d+(.\d+)?)/);
+                    return sum + (match ? parseFloat(match[1]) : 0);
+                }, 0);
+                const avg = (totalScore / ratedItems.length).toFixed(1);
+                document.getElementById('stat-avg').textContent = `${avg} / 10`;
+            } else {
+                document.getElementById('stat-avg').textContent = "N/A";
+            }
+        })
+        .catch(err => console.error("Failed to load stats:", err));
+</script>
 
 <footer class="site-footer">
     <div class="footer-links">
