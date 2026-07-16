@@ -505,8 +505,24 @@ window.onclick = (event) => {
 };
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modal.classList.contains('show')) {
-        closeModal();
+    const searchInput = document.getElementById('searchInput');
+    const modal = document.getElementById('reviewModal');
+
+    if (event.key === 'Escape') {
+        if (modal && modal.classList.contains('show')) {
+            closeModal();
+        }
+        else if (searchInput && document.activeElement === searchInput) {
+            searchInput.blur();
+        }
+        return;
+    }
+
+    if (event.key === '/') {
+        if (searchInput && (!modal || !modal.classList.contains('show')) && document.activeElement.tagName !== 'INPUT') {
+            event.preventDefault();
+            searchInput.focus();
+        }
     }
 });
 
