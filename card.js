@@ -222,6 +222,14 @@ function setupSearch() {
         }
         window.history.replaceState({}, '', url);
 
+        const rMatch = searchTerm.match(/(?:^|\s)r:(\S+)/);
+        const mMatch = searchTerm.match(/(?:^|\s)m:(\S+)/);
+
+        let plainTerm = searchTerm
+            .replace(/(?:^|\s)r:\S*/g, ' ')
+            .replace(/(?:^|\s)m:\S*/g, ' ')
+            .trim();
+
         tierGrids.forEach(grid => {
             const cards = grid.querySelectorAll('.card');
             let gridHasVisibleCard = false;
@@ -231,56 +239,34 @@ function setupSearch() {
                 const itemData = window.categoryData.find(item => item.title.toLowerCase() === title);
                 const review = itemData ? itemData.review.toLowerCase() : '';
 
-                let actualSearchTerm = searchTerm;
-                let searchMode = 'default';
+                const hasR = rMatch !== null;
+                const hasM = mMatch !== null;
+                const hasPlain = plainTerm !== '';
 
-                if (searchTerm.startsWith('r:')) {
-                    searchMode = 'review';
-                    actualSearchTerm = searchTerm.slice(2);
-                } else if (searchTerm.startsWith('m:')) {
-                    searchMode = 'metadata';
-                    actualSearchTerm = searchTerm.slice(2);
-                }
+                let matches;
 
-                let matches = false;
-
-                if (actualSearchTerm === '') {
+                if (!hasR && !hasM && !hasPlain) {
                     matches = true;
-                } else if (searchMode === 'review') {
-                    matches = review.includes(actualSearchTerm);
-                } else if (searchMode === 'metadata') {
-                    if (itemData) {
-                        if (itemData.watched) {
-                            const [year, month, day] = itemData.watched.split('-').map(Number);
-                            const dateObj = new Date(year, month - 1, day);
-
-                            const searchTargets = [
-                                itemData.watched, // "2026-01-08"
-                                itemData.watched.replace(/-/g, ''), // "20260108"
-                                formatDate(itemData.watched), // "Jan 8, 2026"
-                                dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }), // "January 8, 2026"
-                                dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }), // "Jan 8, 2026"
-                                dateObj.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' }), // "1/8/2026"
-                                String(month), // "1"
-                                String(day), // "8"
-                                String(year), // "2026"
-                            ];
-
-                            matches = searchTargets.some(target =>
-                                target.toLowerCase().includes(actualSearchTerm)
-                            );
-                        } else if (itemData.artist) {
-                            matches = itemData.artist.toLowerCase().includes(actualSearchTerm);
-                        } else if (itemData.series) {
-                            matches = itemData.series.toLowerCase().includes(actualSearchTerm);
-                        } else if (itemData.tags) {
-                            matches = itemData.tags.some(tag =>
-                                tag.toLowerCase().includes(actualSearchTerm)
-                            );
-                        }
-                    }
                 } else {
-                    matches = title.includes(actualSearchTerm);
+                    let rMatches = true;
+                    let mMatches = true;
+                    let plainMatches = true;
+
+                    if (hasR) {
+                        const rTerm = rMatch[1].toLowerCase();
+                        rMatches = review.includes(rTerm);
+                    }
+
+                    if (hasM) {
+                        const mTerm = mMatch[1].toLowerCase();
+                        mMatches = checkMetadataMatch(itemData, mTerm);
+                    }
+
+                    if (hasPlain) {
+                        plainMatches = title.includes(plainTerm.toLowerCase());
+                    }
+
+                    matches = rMatches && mMatches && plainMatches;
                 }
 
                 card.style.display = matches ? '' : 'none';
@@ -319,6 +305,35 @@ function setupSearch() {
         if (totalCount) {
             totalCount.textContent = searchTerm === '' ? window.categoryData.length : totalVisible;
         }
+    }
+
+    function checkMetadataMatch(itemData, searchTerm) {
+        if (!itemData) return false;
+
+        if (itemData.watched) {
+            const [year, month, day] = itemData.watched.split('-').map(Number);
+            const dateObj = new Date(year, month - 1, day);
+            const searchTargets = [
+                itemData.watched,
+                itemData.watched.replace(/-/g, ''),
+                formatDate(itemData.watched),
+                dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+                dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+                dateObj.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' }),
+                String(month),
+                String(day),
+                String(year),
+            ];
+            return searchTargets.some(target => target.toLowerCase().includes(searchTerm));
+        } else if (itemData.artist) {
+            return itemData.artist.toLowerCase().includes(searchTerm);
+        } else if (itemData.series) {
+            return itemData.series.toLowerCase().includes(searchTerm);
+        } else if (itemData.tags) {
+            return itemData.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+        }
+
+        return false;
     }
 
     searchInput.addEventListener('input', (e) => {
