@@ -5,7 +5,7 @@ category_dates:
   anime: "2026-06-28"
   music: "2026-07-02"
   videogames: "2026-07-04"
-  books: "2026-07-07"
+  books: "2026-07-19"
 
 movies:
 
@@ -8606,4 +8606,40 @@ books:
     review: |
       TBA
     poster: assets/posters/books/Sender_Unknown.webp
+    tier: s
+
+  - title: '100 Cupboards'
+    series: 'The 100 Cupboards'
+    series_order: 1
+    rating: "9.7"
+    review: |
+      TBA
+    poster: assets/posters/books/100_Cupboards.webp
+    tier: s
+
+  - title: 'Dandelion Fire'
+    series: 'The 100 Cupboards'
+    series_order: 2
+    rating: "9.6"
+    review: |
+      TBA
+    poster: assets/posters/books/Dandelion_Fire.webp
+    tier: s
+
+  - title: 'The Chestnut King'
+    series: 'The 100 Cupboards'
+    series_order: 3
+    rating: "9.8"
+    review: |
+      TBA
+    poster: assets/posters/books/The_Chestnut_King.webp
+    tier: s
+
+  - title: 'The Door Before'
+    series: 'The 100 Cupboards'
+    series_order: 0
+    rating: "9.2"
+    review: |
+      TBA
+    poster: assets/posters/books/The_Door_Before.webp
     tier: s
