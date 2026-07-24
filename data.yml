@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./schema.json
 category_dates:
-  movies: "2026-07-14"
+  movies: "2026-07-24"
   tv: "2026-07-12"
   anime: "2026-06-28"
   music: "2026-07-02"
@@ -4893,18 +4893,24 @@ movies:
     watched: "2026-07-13"
 
   - title: Spider-Man 2
-    rating: "0"
+    rating: "8.6"
     review: |
-      TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+      I didn't enjoy Spider-Man 2 as much as I did the first one, but it was still a serviceable entry in the trilogy.
+      
+      Not much to say really, it was pretty good. Expanded on the first and wrapped up some leftovers too.
+    poster: assets/posters/movies/Spider-Man_2.webp
+    tier: a
+    watched: "2026-07-17"
 
   - title: Spider-Man 3
-    rating: "0"
+    rating: "8.1"
     review: |
-      TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+      Honestly, relative to the first two, Spider-Man 3 kinda sucked.
+      
+      Maybe it's because I watched three Spider-Man movies in less than a week, but this one just didn't have the appeal of the other two, and while I liked the symbiote subplot, the story as a whole felt more disjointed than the first two.
+    poster: assets/posters/movies/Spider-Man_3.webp
+    tier: a
+    watched: "2026-07-18"
 
   - title: 'Spider-Man: Across the Spider-Verse'
     rating: "0"
