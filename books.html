@@ -24,7 +24,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="manifest" href="assets/site.webmanifest">
-    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.1/dist/js-yaml.min.js"></script>
 </head>
 <body>
 
@@ -101,19 +100,22 @@
     </div>
 </dialog>
 
-<script>
-    fetch('data.yml')
-        .then(r => r.text())
-        .then(text => {
-            const allData = jsyaml.load(text);
-            window.categoryData = allData.books;
-            window.categoryDate = allData.category_dates?.books;
-            window.currentCategory = 'books';
-            populateCards();
-        })
-        .catch(err => console.error("YAML load failed:", err));
-</script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.1/dist/js-yaml.min.js"></script>
 <script src="card.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('data.yml')
+            .then(r => r.text())
+            .then(text => {
+                const allData = jsyaml.load(text);
+                window.categoryData = allData.books;
+                window.categoryDate = allData.category_dates?.books;
+                window.currentCategory = 'books';
+                populateCards();
+            })
+            .catch(err => console.error("YAML load failed:", err));
+    });
+</script>
 
 <footer class="site-footer">
     <div class="footer-links">
