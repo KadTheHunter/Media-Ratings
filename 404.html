@@ -27,7 +27,7 @@
         <h1 class="creepy-glitch" data-text="404">404</h1>
     </div>
     <p>Page Not Found.<br>The media you're looking for has been recategorized, or perhaps it never even existed at all...</p>
-    <a href="/" id="home-btn">Return to Homepage</a>
+    <a href="https://kadthehunter.github.io/Media-Ratings/" id="home-btn">Return to Homepage</a>
 </main>
 <script>
     document.getElementById('home-btn').addEventListener('click',function(e){e.preventDefault();const btn=this;btn.classList.add('broken');btn.textContent='REROUTING...';setTimeout(()=>{window.location.href=btn.getAttribute('href')},600)})
