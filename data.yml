@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./schema.json
 category_dates:
   movies: "2026-07-24"
-  tv: "2026-07-12"
+  tv: "2026-07-26"
   anime: "2026-06-28"
   music: "2026-07-02"
   videogames: "2026-07-04"
@@ -7089,11 +7089,18 @@ tv:
     tier: unranked
 
   - title: MobLand
-    rating: "0"
+    rating: "7.3"
     review: |
-      TBA
-    poster: assets/images/no-poster.svg
-    tier: unranked
+      MobLand started out so boring I almost gave it up after the first episode; Its one saving grace was the main character Harry Da Souza (Tom Hardy), who initially seemed to be the only intelligent criminal in the entire show.
+      
+      Ten episodes later, and that assessment isn't too far off the mark: most of the Harrigan crime family are stark raving lunatics, either naturally or by their families making, and other players like Richie Stevenson think themselves smart but they aren't.
+      
+      It picks up a bit in later episodes, and is at least tolerable to watch if not completely enjoyable. Was quite surprised by the ending, and am interested to see where Season 2 goes; Will have to update my review when it's out.
+      
+      Probably the best bit from this show is one of Maeve's lines, which was hilarious and I will <b>absolutely</b> be using as a gamertag in the future: <i>Lord Squire Sir Conrad of Cuntfordshire</i>
+    poster: assets/posters/tv/MobLand.webp
+    tier: a
+    watched: "2026-07-26"
 
   - title: Monk
     rating: "0"
