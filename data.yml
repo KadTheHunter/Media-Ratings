@@ -4,8 +4,8 @@ category_dates:
   tv: "2026-07-26"
   anime: "2026-06-28"
   music: "2026-07-02"
-  videogames: "2026-07-04"
-  books: "2026-07-19"
+  videogames: "2026-08-20"
+  books: "2026-08-20"
 
 movies:
 
@@ -8594,6 +8594,59 @@ videogames:
       - Mechs
       - Movement
 
+  - title: 'Hotline Miami'
+    rating: "8.9"
+    review: |
+      TBA
+    poster: assets/posters/videogames/Hotline_Miami.webp
+    tier: a
+    tags:
+      - Top-Down
+      - Violent
+      - Synthwave
+
+  - title: 'Hamster Hunter'
+    rating: "7.1"
+    review: |
+      TBA
+    poster: assets/posters/videogames/Hamster_Hunter.webp
+    tier: a
+    tags:
+      - Factory
+      - Meme
+
+  - title: 'Hole'
+    rating: "7.3"
+    review: |
+      TBA
+    poster: assets/posters/videogames/Hole.webp
+    tier: a
+    tags:
+      - FPS
+      - Extraction Shooter
+      - Liminal
+
+  - title: '911 Operator'
+    rating: "3.8"
+    review: |
+      TBA
+    poster: assets/posters/videogames/911_Operator.webp
+    tier: c
+    tags:
+      - Tactics
+      - Simulation
+      - Management
+
+  - title: 'Buckshot Roulette'
+    rating: "8.6"
+    review: |
+      TBA
+    poster: assets/posters/videogames/Buckshot_Roulette.webp
+    tier: a
+    tags:
+      - Roguelike
+      - Gambling
+
 books:
 
   - title: 'The Screaming Staircase'
@@ -8656,3 +8709,39 @@ books:
       TBA
     poster: assets/posters/books/The_Door_Before.webp
     tier: s
+
+  - title: 'Jumper'
+    series: 'Jumper'
+    series_order: 1
+    rating: "9.4"
+    review: |
+      TBA
+    poster: assets/posters/books/Jumper.webp
+    tier: s
+
+  - title: 'Reflex'
+    series: 'Jumper'
+    series_order: 2
+    rating: "9.5"
+    review: |
+      TBA
+    poster: assets/posters/books/Reflex.webp
+    tier: s
+
+  - title: 'Impulse'
+    series: 'Jumper'
+    series_order: 3
+    rating: "9.2"
+    review: |
+      TBA
+    poster: assets/posters/books/Impulse.webp
+    tier: s
+
+  - title: 'Exo'
+    series: 'Jumper'
+    series_order: 4
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/posters/books/Exo.webp
+    tier: unranked
