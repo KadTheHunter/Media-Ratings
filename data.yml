@@ -3,9 +3,9 @@ category_dates:
   movies: "2026-07-24"
   tv: "2026-07-26"
   anime: "2026-06-28"
-  music: "2026-07-02"
-  videogames: "2026-08-20"
-  books: "2026-08-20"
+  music: "2026-08-23"
+  videogames: "2026-08-23"
+  books: "2026-08-23"
 
 movies:
 
@@ -8486,6 +8486,17 @@ music:
 
 videogames:
 
+  - title: '911 Operator'
+    rating: "3.8"
+    review: |
+      TBA
+    poster: assets/posters/videogames/911_Operator.webp
+    tier: c
+    tags:
+      - Tactics
+      - Simulation
+      - Management
+
   - title: Apex Legends
     rating: "5.1"
     review: |
@@ -8533,6 +8544,16 @@ videogames:
       - Star Wars
       - Multiplayer
 
+  - title: 'Buckshot Roulette'
+    rating: "8.6"
+    review: |
+      TBA
+    poster: assets/posters/videogames/Buckshot_Roulette.webp
+    tier: a
+    tags:
+      - Roguelike
+      - Gambling
+
   - title: Death Must Die
     rating: "9.4"
     review: |
@@ -8542,6 +8563,16 @@ videogames:
     tags:
       - Roguelite
       - Top-Down
+
+  - title: 'Hamster Hunter'
+    rating: "7.1"
+    review: |
+      TBA
+    poster: assets/posters/videogames/Hamster_Hunter.webp
+    tier: a
+    tags:
+      - Factory
+      - Meme
 
   - title: Hogwarts Legacy
     rating: "9.5"
@@ -8562,6 +8593,28 @@ videogames:
     tags:
       - RPG
       - Magic
+
+  - title: 'Hole'
+    rating: "7.3"
+    review: |
+      TBA
+    poster: assets/posters/videogames/Hole.webp
+    tier: a
+    tags:
+      - FPS
+      - Extraction Shooter
+      - Liminal
+
+  - title: 'Hotline Miami'
+    rating: "8.9"
+    review: |
+      TBA
+    poster: assets/posters/videogames/Hotline_Miami.webp
+    tier: a
+    tags:
+      - Top-Down
+      - Violent
+      - Synthwave
 
   - title: Minecraft
     rating: "10"
@@ -8594,85 +8647,7 @@ videogames:
       - Mechs
       - Movement
 
-  - title: 'Hotline Miami'
-    rating: "8.9"
-    review: |
-      TBA
-    poster: assets/posters/videogames/Hotline_Miami.webp
-    tier: a
-    tags:
-      - Top-Down
-      - Violent
-      - Synthwave
-
-  - title: 'Hamster Hunter'
-    rating: "7.1"
-    review: |
-      TBA
-    poster: assets/posters/videogames/Hamster_Hunter.webp
-    tier: a
-    tags:
-      - Factory
-      - Meme
-
-  - title: 'Hole'
-    rating: "7.3"
-    review: |
-      TBA
-    poster: assets/posters/videogames/Hole.webp
-    tier: a
-    tags:
-      - FPS
-      - Extraction Shooter
-      - Liminal
-
-  - title: '911 Operator'
-    rating: "3.8"
-    review: |
-      TBA
-    poster: assets/posters/videogames/911_Operator.webp
-    tier: c
-    tags:
-      - Tactics
-      - Simulation
-      - Management
-
-  - title: 'Buckshot Roulette'
-    rating: "8.6"
-    review: |
-      TBA
-    poster: assets/posters/videogames/Buckshot_Roulette.webp
-    tier: a
-    tags:
-      - Roguelike
-      - Gambling
-
 books:
-
-  - title: 'The Screaming Staircase'
-    series: 'Lockwood & Co.'
-    series_order: 1
-    rating: "9.7"
-    review: |
-      TBA
-    poster: assets/posters/books/The_Screaming_Staircase.webp
-    tier: s
-
-  - title: 'The Whispering Skull'
-    series: 'Lockwood & Co.'
-    series_order: 2
-    rating: "9.7"
-    review: |
-      TBA
-    poster: assets/posters/books/The_Whispering_Skull.webp
-    tier: s
-
-  - title: 'Sender Unknown'
-    rating: "9.8"
-    review: |
-      TBA
-    poster: assets/posters/books/Sender_Unknown.webp
-    tier: s
 
   - title: '100 Cupboards'
     series: 'The 100 Cupboards'
@@ -8681,15 +8656,6 @@ books:
     review: |
       TBA
     poster: assets/posters/books/100_Cupboards.webp
-    tier: s
-
-  - title: 'Dandelion Fire'
-    series: 'The 100 Cupboards'
-    series_order: 2
-    rating: "9.6"
-    review: |
-      TBA
-    poster: assets/posters/books/Dandelion_Fire.webp
     tier: s
 
   - title: 'The Chestnut King'
@@ -8701,6 +8667,15 @@ books:
     poster: assets/posters/books/The_Chestnut_King.webp
     tier: s
 
+  - title: 'Dandelion Fire'
+    series: 'The 100 Cupboards'
+    series_order: 2
+    rating: "9.6"
+    review: |
+      TBA
+    poster: assets/posters/books/Dandelion_Fire.webp
+    tier: s
+
   - title: 'The Door Before'
     series: 'The 100 Cupboards'
     series_order: 0
@@ -8708,6 +8683,24 @@ books:
     review: |
       TBA
     poster: assets/posters/books/The_Door_Before.webp
+    tier: s
+
+  - title: 'Exo'
+    series: 'Jumper'
+    series_order: 4
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/posters/books/Exo.webp
+    tier: unranked
+
+  - title: 'Impulse'
+    series: 'Jumper'
+    series_order: 3
+    rating: "9.2"
+    review: |
+      TBA
+    poster: assets/posters/books/Impulse.webp
     tier: s
 
   - title: 'Jumper'
@@ -8728,20 +8721,28 @@ books:
     poster: assets/posters/books/Reflex.webp
     tier: s
 
-  - title: 'Impulse'
-    series: 'Jumper'
-    series_order: 3
-    rating: "9.2"
+  - title: 'The Screaming Staircase'
+    series: 'Lockwood & Co.'
+    series_order: 1
+    rating: "9.7"
     review: |
       TBA
-    poster: assets/posters/books/Impulse.webp
+    poster: assets/posters/books/The_Screaming_Staircase.webp
     tier: s
 
-  - title: 'Exo'
-    series: 'Jumper'
-    series_order: 4
-    rating: "0"
+  - title: 'Sender Unknown'
+    rating: "9.8"
     review: |
       TBA
-    poster: assets/posters/books/Exo.webp
-    tier: unranked
+    poster: assets/posters/books/Sender_Unknown.webp
+    tier: s
+
+  - title: 'The Whispering Skull'
+    series: 'Lockwood & Co.'
+    series_order: 2
+    rating: "9.7"
+    review: |
+      TBA
+    poster: assets/posters/books/The_Whispering_Skull.webp
+    tier: s
+
