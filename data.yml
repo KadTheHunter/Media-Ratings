@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./schema.json
 category_dates:
-  movies: "2026-07-24"
-  tv: "2026-07-26"
+  movies: "2026-08-23"
+  tv: "2026-08-23"
   anime: "2026-06-28"
   music: "2026-08-23"
   videogames: "2026-08-23"
@@ -1066,6 +1066,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: Citizen Vigilante
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: City of Ember
     rating: "0"
     review: |
@@ -1219,6 +1227,14 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: 'Danger Close: The Battle of Long Tan'
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Dark City
     rating: "0"
@@ -1632,6 +1648,14 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: Ethel & Ernest
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Evil Dead
     rating: "0"
@@ -2396,6 +2420,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: Humanist Vampire Seeking Consenting Suicidal Person
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: The Hunger Games
     rating: "0"
     review: |
@@ -2640,6 +2672,14 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: Iron Lung
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Iron Man
     rating: "0"
@@ -3362,6 +3402,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: The Mandalorian and Grogu
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: The Mandela Effect
     rating: "0"
     review: |
@@ -3754,6 +3802,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: My Cousin Vinny
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: Nanny McPhee
     rating: "0"
     review: |
@@ -3887,6 +3943,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: Nobody 2
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: North by Northwest
     rating: "0"
     review: |
@@ -3942,6 +4006,14 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: O Brother, Where Art Thou?
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Office Space
     rating: "0"
@@ -4265,6 +4337,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: Project Hail Mary
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: Psycho
     rating: "0"
     review: |
@@ -4292,6 +4372,14 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: The Quiet Girl
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Quigley Down Under
     rating: "0"
@@ -4874,6 +4962,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: Spider Baby
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: Spider-Man
     rating: "8.9"
     review: |
@@ -5185,6 +5281,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: Summer Wars
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: The Super Mario Bros. Movie
     rating: "0"
     review: |
@@ -5198,6 +5302,22 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: Support Your Local Gunfighter
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
+  - title: Support Your Local Sheriff!
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Suspicion
     rating: "0"
@@ -5577,6 +5697,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: The Untouchables
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: Upgrade
     rating: "0"
     review: |
@@ -5915,6 +6043,14 @@ tv:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: The 4400
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: The Addams Family
     rating: "0"
     review: |
@@ -6082,6 +6218,14 @@ tv:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: Beyond
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: The Big Bang Theory
     rating: "6.2"
@@ -6283,6 +6427,14 @@ tv:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: The Crow Girl
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: Cult
     rating: "0"
     review: |
@@ -6394,6 +6546,14 @@ tv:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: Dollhouse
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Downton Abbey
     rating: "0"
@@ -6782,6 +6942,14 @@ tv:
     poster: assets/posters/tv/Impulse.webp
     tier: s
     watched: "2026-04-28"
+
+  - title: Incorporated
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Into the West
     rating: "0"
@@ -7185,6 +7353,14 @@ tv:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: NewsRadio
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: neXt (2020)
     rating: "0"
@@ -7882,6 +8058,14 @@ tv:
     tier: a
     watched: "2026-03-21"
 
+  - title: The Twilight Zone
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: Twin Peaks
     rating: "0"
     review: |
@@ -8072,6 +8256,14 @@ tv:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: Your Friends & Neighbors
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Z Nation
     rating: "0"
