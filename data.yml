@@ -5,7 +5,7 @@ category_dates:
   anime: "2026-06-28"
   music: "2026-08-23"
   videogames: "2026-08-23"
-  books: "2026-08-23"
+  books: "2026-08-30"
 
 movies:
 
@@ -8911,6 +8911,15 @@ books:
     review: |
       TBA
     poster: assets/posters/books/Reflex.webp
+    tier: s
+
+  - title: 'The Rook'
+    series: 'The Checquy Files'
+    series_order: 1
+    rating: "9.9"
+    review: |
+      TBA
+    poster: assets/posters/books/The_Rook.webp
     tier: s
 
   - title: 'The Screaming Staircase'
