@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./schema.json
 category_dates:
-  movies: "2026-08-23"
-  tv: "2026-08-23"
+  movies: "2026-09-02"
+  tv: "2026-09-02"
   anime: "2026-06-28"
   music: "2026-08-23"
   videogames: "2026-08-23"
@@ -2350,6 +2350,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: The Holdovers
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: Home
     rating: "0"
     review: |
@@ -3051,6 +3059,14 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: The Last Legion
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: The Last Witch Hunter
     rating: "0"
@@ -4527,6 +4543,14 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: The Returned
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Revenge of the Creature
     rating: "0"
@@ -7130,6 +7154,14 @@ tv:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: Lightning Point
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: Lilyhammer
     rating: "0"
     review: |
@@ -7607,6 +7639,14 @@ tv:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: The Returned (US)
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: Revolution
     rating: "0"
     review: |
@@ -7634,6 +7674,14 @@ tv:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: The Rook
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: School Spirits (2023)
     rating: "0"
