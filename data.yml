@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./schema.json
 category_dates:
-  movies: "2026-09-02"
-  tv: "2026-09-02"
+  movies: "2026-09-03"
+  tv: "2026-09-03"
   anime: "2026-06-28"
   music: "2026-08-23"
   videogames: "2026-08-23"
@@ -435,6 +435,14 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: Backrooms
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Bad City
     rating: "0"
@@ -1606,6 +1614,30 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: Enola Holmes
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
+  - title: Enola Holmes 2
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
+  - title: Enola Holmes 3
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Enys Men
     rating: "0"
@@ -3159,6 +3191,14 @@ movies:
     poster: assets/images/no-poster.svg
     tier: unranked
 
+  - title: Logan's Run
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
+
   - title: 'Léon: The Professional'
     rating: "0"
     review: |
@@ -3614,6 +3654,14 @@ movies:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: Minions & Monsters
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: 'Minions: The Rise of Gru'
     rating: "0"
@@ -7212,6 +7260,14 @@ tv:
       TBA
     poster: assets/images/no-poster.svg
     tier: unranked
+
+  - title: Logan's Run
+    rating: "0"
+    review: |
+      TBA
+    poster: assets/images/no-poster.svg
+    tier: unranked
+    watched: ''
 
   - title: Lonesome Dove
     rating: "0"
