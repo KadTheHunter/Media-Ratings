@@ -198,6 +198,56 @@ function setupCollapsibleTiers() {
     });
 }
 
+/**
+ * Calculates and renders the distribution progress bar for each tier.
+ * @returns {void}
+ */
+function renderTierDistribution() {
+    if (!window.categoryData) return;
+
+    const rankedItems = window.categoryData.filter(item => item.tier !== 'unranked');
+    const totalRanked = rankedItems.length;
+
+    if (totalRanked === 0) return;
+
+    const tiers = ['s', 'a', 'b', 'c', 'd'];
+
+    tiers.forEach(tier => {
+        const tierGrid = document.getElementById(`${tier}-tier`);
+        if (!tierGrid) return;
+
+        const itemsInTier = tierGrid.querySelectorAll('.card').length;
+
+        if (itemsInTier > 0) {
+            const percentage = ((itemsInTier / totalRanked) * 100).toFixed(1);
+
+            const distBar = document.createElement('div');
+            distBar.className = `tier-distribution tier-dist-${tier}`;
+
+            distBar.style.setProperty('--fill-width', `${percentage}%`);
+
+            const fill = document.createElement('div');
+            fill.className = 'tier-distribution-fill';
+            distBar.appendChild(fill);
+
+            tierGrid.insertAdjacentElement('beforebegin', distBar);
+
+            const header = distBar.previousElementSibling;
+            if (header && header.classList.contains('tier-header')) {
+                header.title = `${percentage}% of ranked library`;
+
+                const syncWidth = () => {
+                    distBar.style.width = `${header.offsetWidth}px`;
+                };
+
+                syncWidth();
+
+                window.addEventListener('resize', syncWidth);
+            }
+        }
+    });
+}
+
 // ==================== SEARCH BAR ====================
 
 /**
