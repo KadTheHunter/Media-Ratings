@@ -99,7 +99,10 @@ def get_sortable_title(title):
 # JELLYFIN API FUNCTIONS
 # ======================
 def get_jellyfin_items():
-    headers = {"X-Emby-Token": JELLYFIN_API_KEY, "Accept": "application/json"}
+    headers = {
+        'Authorization': f'MediaBrowser Token="{JELLYFIN_API_KEY}"',
+        'Accept': 'application/json'
+    }
     url = f"{JELLYFIN_URL}/Users/{USER_ID}/Items"
     params = {
         "IncludeItemTypes": "Movie,Series", "Recursive": "true",
