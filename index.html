@@ -122,6 +122,30 @@
                 <p id="stat-total">Loading...</p>
             </div>
         </div>
+
+        <h2 class="stats-header">Review Stats</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-icon">✍️</span>
+                <h3>Total Words</h3>
+                <p id="stat-words">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">📝</span>
+                <h3>Avg Words / Review</h3>
+                <p id="stat-avg-words">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">👑</span>
+                <h3>Magnum Opus</h3>
+                <p id="stat-magnum">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">✅</span>
+                <h3>Review Completion</h3>
+                <p id="stat-completion">Loading...</p>
+            </div>
+        </div>
     </section>
 
     <section class="ramblings-section">
@@ -192,6 +216,31 @@
                 } else {
                     document.getElementById('stat-avg').textContent = "N/A";
                 }
+
+                let totalWords = 0;
+                let reviewedCount = 0;
+                let longestReview = { title: "None", words: 0 };
+
+                allItems.forEach(item => {
+                    if (item.tier !== 'unranked' && item.review && item.review.trim().toUpperCase() !== "TBA") {
+                        reviewedCount++;
+                        const words = item.review.trim().split(/\s+/).length;
+                        totalWords += words;
+                        if (words > longestReview.words) {
+                            longestReview = { title: item.title, words: words };
+                        }
+                    }
+                });
+
+                const avgWords = reviewedCount > 0 ? Math.round(totalWords / reviewedCount) : 0;
+                const completionRate = allItems.filter(i => i.tier !== 'unranked').length > 0
+                    ? Math.round((reviewedCount / allItems.filter(i => i.tier !== 'unranked').length) * 100)
+                    : 0;
+
+                document.getElementById('stat-words').textContent = `${totalWords.toLocaleString()} Words`;
+                document.getElementById('stat-avg-words').textContent = `${avgWords} Words`;
+                document.getElementById('stat-magnum').textContent = `${longestReview.title} (${longestReview.words} words)`;
+                document.getElementById('stat-completion').textContent = `${completionRate}%`;
             })
             .catch(err => console.error("Failed to load stats:", err));
     });
