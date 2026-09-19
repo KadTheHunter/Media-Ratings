@@ -508,6 +508,7 @@ function populateCards() {
     setupCollapsibleTiers();
     setupSearch();
     highlightItemFromURL();
+    renderTierDistribution();
 }
 
 
