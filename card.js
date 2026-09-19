@@ -8,6 +8,7 @@
  * @property {boolean} [count]
  * @property {number} [weight]
  * @property {string} [watched]
+ * @property {string} [hint]
  * @property {string} [artist]
  * @property {string} [series]
  * @property {number} [series_order]
@@ -70,6 +71,7 @@ function createCard(item, index = 0, eagerThreshold = 8) {
     const loadingAttr = index < eagerThreshold ? 'eager' : 'lazy';
     const imgWidth = 200;
     const imgHeight = isMusic ? 200 : 300;
+    const titleAttr = item.hint ? `title="${item.hint}"` : '';
 
     // Safely extract the number (works for "9.3", "9.3/10", or "☆☆☆☆☆ (9.3/10)")
     const ratingMatch = item.rating.match(/(\d+(\.\d+)?)/);
@@ -82,7 +84,8 @@ function createCard(item, index = 0, eagerThreshold = 8) {
                  loading="${loadingAttr}" 
                  width="${imgWidth}" 
                  height="${imgHeight}"
-                 alt="${item.title} Poster">
+                 alt="${item.title} Poster"
+                 ${titleAttr}>
         </div>
         <div class="card-content">
             <h3 class="card-title">${item.title}</h3>

@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./schema.json
 category_dates:
   movies: "2026-09-03"
-  tv: "2026-09-03"
+  tv: "2026-09-19"
   anime: "2026-06-28"
   music: "2026-08-23"
   videogames: "2026-08-23"
@@ -6484,6 +6484,7 @@ tv:
       TBA
     poster: assets/posters/tv/Columbo.webp
     tier: s
+    hint: "Oh, just one more thing!"
 
   - title: Comanche Moon
     rating: "0"

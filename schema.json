@@ -41,7 +41,8 @@
             "default": "\"\""
           },
           "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
-          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" },
+          "hint": { "type": "string", "description": "Text displayed when hovering over the poster" }
         },
         "required": ["title", "rating", "review", "poster", "tier"]
       }
@@ -70,7 +71,8 @@
             "default": ""
           },
           "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
-          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" },
+          "hint": { "type": "string", "description": "Text displayed when hovering over the poster" }
         },
         "required": ["title", "rating", "review", "poster", "tier"]
       }
@@ -99,7 +101,8 @@
             "default": ""
           },
           "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
-          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" },
+          "hint": { "type": "string", "description": "Text displayed when hovering over the poster" }
         },
         "required": ["title", "rating", "review", "poster", "tier"]
       }
@@ -123,7 +126,8 @@
             "default": ""
           },
           "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
-          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" },
+          "hint": { "type": "string", "description": "Text displayed when hovering over the poster" }
         },
         "required": ["title", "artist", "rating", "review", "poster", "tier"]
       }
@@ -151,7 +155,8 @@
             "description": "Genre tags"
           },
           "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
-          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" },
+          "hint": { "type": "string", "description": "Text displayed when hovering over the poster" }
         },
         "required": ["title", "rating", "review", "poster", "tier", "tags"]
       }
@@ -176,7 +181,8 @@
             "default": ""
           },
           "count": { "type": "boolean", "description": "Counts toward library total", "default": "false" },
-          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" }
+          "weight": { "type": "number", "description": "Sort weight for tie-breaking", "default": "" },
+          "hint": { "type": "string", "description": "Text displayed when hovering over the poster" }
         },
         "required": ["title", "rating", "review", "poster", "tier"]
       }
