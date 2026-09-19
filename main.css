@@ -270,6 +270,7 @@ h1, h2 {
 }
 
 .star-rating {
+    --rating: 0;
     background: linear-gradient(90deg,
     #ffd700 var(--rating, 0%),
     #444 var(--rating, 0%));
