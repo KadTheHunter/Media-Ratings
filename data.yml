@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./schema.json
 category_dates:
-  movies: "2026-09-03"
+  movies: "2026-09-19"
   tv: "2026-09-19"
   anime: "2026-06-28"
   music: "2026-09-19"
@@ -5059,6 +5059,8 @@ movies:
     poster: assets/posters/movies/Spider-Man.webp
     tier: a
     watched: "2026-07-13"
+    series: "Spider-Man"
+    series_order: 1
 
   - title: Spider-Man 2
     rating: "8.6"
@@ -5069,6 +5071,8 @@ movies:
     poster: assets/posters/movies/Spider-Man_2.webp
     tier: a
     watched: "2026-07-17"
+    series: Spider-Man
+    series_order: 2
 
   - title: Spider-Man 3
     rating: "8.1"
@@ -5079,6 +5083,8 @@ movies:
     poster: assets/posters/movies/Spider-Man_3.webp
     tier: a
     watched: "2026-07-18"
+    series: Spider-Man
+    series_order: 3
 
   - title: 'Spider-Man: Across the Spider-Verse'
     rating: "0"
