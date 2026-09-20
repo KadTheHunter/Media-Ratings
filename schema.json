@@ -24,6 +24,8 @@
         "additionalProperties": false,
         "properties": {
           "title": { "type": "string", "description": "Movie Title", "default": "" },
+          "series": { "type": "string", "description": "Series Name", "default": "" },
+          "series_order": { "type": "number", "description": "Position in Series", "default": "" },
           "rating": { "type": "string", "description": "Rating (e.g., '8.5', '9')", "default": "" },
           "review": { "type": "string", "description": "Written Review", "default": "|\n      " },
           "poster": { "type": "string", "description": "Poster Path", "default": "" },
@@ -140,6 +142,8 @@
         "additionalProperties": false,
         "properties": {
           "title": { "type": "string", "description": "Videogame Title", "default": "" },
+          "series": { "type": "string", "description": "Series Name", "default": "" },
+          "series_order": { "type": "number", "description": "Position in Series", "default": "" },
           "rating": { "type": "string", "description": "Rating (e.g., '8.5', '9')", "default": "" },
           "review": { "type": "string", "description": "Written Review", "default": "|\n      " },
           "poster": { "type": "string", "description": "Poster Path", "default": "" },
