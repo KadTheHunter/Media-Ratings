@@ -4,7 +4,7 @@ category_dates:
   tv: "2026-09-19"
   anime: "2026-06-28"
   music: "2026-09-19"
-  videogames: "2026-08-23"
+  videogames: "2026-09-19"
   books: "2026-08-30"
 
 movies:
@@ -8853,18 +8853,18 @@ videogames:
       - Roguelite
       - Deck-Builder
 
-  - title: "Battlefront II"
+  - title: STAR WARS Battlefront II
     rating: "9"
     review: |
       TBA
-    poster: assets/posters/videogames/Battlefront_II.webp
+    poster: assets/posters/videogames/STAR_WARS_Battlefront_II.webp
     tier: s
     tags:
       - FPS
       - Star Wars
       - Multiplayer
 
-  - title: 'Buckshot Roulette'
+  - title: Buckshot Roulette
     rating: "8.6"
     review: |
       TBA
@@ -8884,7 +8884,7 @@ videogames:
       - Roguelite
       - Top-Down
 
-  - title: 'Hamster Hunter'
+  - title: Hamster Hunter
     rating: "7.1"
     review: |
       TBA
@@ -8914,18 +8914,18 @@ videogames:
       - RPG
       - Magic
 
-  - title: 'Hole'
+  - title: HOLE
     rating: "7.3"
     review: |
       TBA
-    poster: assets/posters/videogames/Hole.webp
+    poster: assets/posters/videogames/HOLE.webp
     tier: a
     tags:
       - FPS
       - Extraction Shooter
       - Liminal
 
-  - title: 'Hotline Miami'
+  - title: Hotline Miami
     rating: "8.9"
     review: |
       TBA
