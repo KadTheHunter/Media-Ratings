@@ -2,8 +2,8 @@
 category_dates:
   movies: "2026-09-03"
   tv: "2026-09-19"
-  anime: "2026-06-28"
-  music: "2026-08-23"
+  anime: "2026-09-19"
+  music: "2026-09-19"
   videogames: "2026-08-23"
   books: "2026-08-30"
 
@@ -8748,28 +8748,28 @@ anime:
 
 music:
 
-  - title: Animal
+  - title: Animal (Expanded Edition) [E]
     artist: 'Ke$ha'
     rating: "7.8"
     review: |
       TBA
-    poster: assets/posters/music/Animal.webp
+    poster: assets/posters/music/Animal_(Expanded_Edition)_[E].webp
     tier: a
 
-  - title: Badlands
+  - title: BADLANDS (Deluxe) [E]
     artist: 'Halsey'
     rating: "9.2"
     review: |
       TBA
-    poster: assets/posters/music/Badlands.webp
+    poster: assets/posters/music/BADLANDS_(Deluxe)_[E].webp
     tier: s
 
-  - title: Cannibal
+  - title: Cannibal (Expanded Edition)
     artist: 'Ke$ha'
     rating: "9"
     review: |
       TBA
-    poster: assets/posters/music/Cannibal.webp
+    poster: assets/posters/music/Cannibal_(Expanded_Edition).webp
     tier: s
 
   - title: MOON E.P.
@@ -8780,28 +8780,28 @@ music:
     poster: assets/posters/music/MOON_EP.webp
     tier: s
 
-  - title: Rainbow
+  - title: Rainbow [E]
     artist: 'Ke$ha'
     rating: "6.1"
     review: |
       TBA
-    poster: assets/posters/music/Rainbow.webp
+    poster: assets/posters/music/Rainbow_[E].webp
     tier: b
 
-  - title: Warrior
+  - title: Warrior (Expanded Edition) [E]
     artist: 'Ke$ha'
     rating: "8.2"
     review: |
       TBA
-    poster: assets/posters/music/Warrior.webp
+    poster: assets/posters/music/Warrior_(Expanded_Edition)_[E].webp
     tier: a
 
-  - title: Wednesday S1 - OST
+  - title: Wednesday (Original Soundtrack from the Netflix Series)
     artist: 'wednesday addams'
     rating: "9.4"
     review: |
       TBA
-    poster: assets/posters/music/Wednesday_S1_OST.webp
+    poster: assets/posters/music/Wednesday_(Original_Soundtrack_from_the_Netflix_Series).webp
     tier: s
 
 videogames:
