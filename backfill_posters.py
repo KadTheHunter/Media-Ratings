@@ -2,8 +2,10 @@ import os
 import re
 import requests
 import subprocess
+import mutagen
 from pathlib import Path
 from dotenv import load_dotenv
+from ruamel.yaml import YAML
 
 # ==================
 # CONFIGURATION
@@ -12,7 +14,7 @@ load_dotenv()
 JELLYFIN_URL = os.getenv("JELLYFIN_URL")
 JELLYFIN_API_KEY = os.getenv("JELLYFIN_API_KEY")
 USER_ID = os.getenv("JELLYFIN_USER_ID")
-
+MUSIC_DIR = Path("/d/Music")
 POSTERS_DIR = 'assets/posters'
 
 # ==================
@@ -36,9 +38,9 @@ def cprint(text, color=""):
 # ==================
 def sanitize_filename(title):
     """Converts a title into a safe filename."""
-    safe = re.sub(r'[^\w\s-]', '', title).strip()
-    safe = re.sub(r'\s+', '_', safe)
-    return safe
+    clean = re.sub(r'[.<>:"/\\|?*\-\u2013\u2014]', '', title).strip()
+    return re.sub(r'\s+', '_', clean)
+
 
 def get_jellyfin_poster(title):
     """Searches Jellyfin for the title and returns the Primary Image URL."""
@@ -81,6 +83,65 @@ def download_image(url, filepath):
         cprint(f"  [!] Failed to download image: {e}", Colors.RED)
         return False
 
+def extract_local_music_covers(data):
+    """Scans local music folders for ranked items missing posters and extracts embedded covers."""
+    if not MUSIC_DIR.exists(): return 0
+    cprint("Scanning local music for ranked items missing posters...", Colors.CYAN)
+
+    music_titles = [item.get('title', '') for item in data.get('music', [])]
+
+    downloaded_count = 0
+    for item in data.get('music', []):
+        if item.get('tier') != 'unranked' and 'no-poster' in item.get('poster', ''):
+            artist = item.get('artist', '')
+            title = item.get('title', '')
+
+            album_dir = MUSIC_DIR / artist / title
+            if not album_dir.exists():
+                cprint(f"  [!] Folder not found for: {artist} - {title}", Colors.YELLOW)
+                continue
+
+            audio_path = None
+            for ext in ['*.mp3', '*.flac', '*.m4a', '*.ogg']:
+                audio_path = next(album_dir.glob(ext), None)
+                if audio_path: break
+
+            if not audio_path:
+                cprint(f"  [!] No audio files found in folder for: {title}", Colors.YELLOW)
+                continue
+
+            try:
+                audio = mutagen.File(audio_path)
+                image_data = None
+
+                if audio_path.suffix == '.mp3' and 'APIC:' in audio.tags:
+                    image_data = audio.tags['APIC:'].data
+                elif audio_path.suffix == '.flac' and audio.pictures:
+                    image_data = audio.pictures[0].data
+                elif audio_path.suffix in ['.m4a', '.mp4'] and audio.tags and 'covr' in audio.tags:
+                    image_data = audio.tags['covr'][0]
+
+                if image_data:
+                    is_unique = music_titles.count(title) == 1
+                    safe_name = sanitize_filename(title) if is_unique else sanitize_filename(f"{title} {artist}")
+
+                    category_dir = Path(POSTERS_DIR) / 'music'
+                    category_dir.mkdir(parents=True, exist_ok=True)
+
+                    raw_filepath = category_dir / f"{safe_name}.jpg"
+                    with open(raw_filepath, 'wb') as f:
+                        f.write(image_data)
+
+                    downloaded_count += 1
+                    cprint(f"  ✓ Extracted cover for: {Colors.CYAN}{title}", Colors.GREEN)
+                else:
+                    cprint(f"  [!] No embedded cover found in audio files for: {title}", Colors.YELLOW)
+            except Exception as e:
+                cprint(f"  [!] Failed to extract {title}: {e}", Colors.RED)
+
+    return downloaded_count
+
+
 # ==================
 # MAIN SCRIPT
 # ==================
@@ -90,8 +151,6 @@ def main():
         return
 
     cprint("Scanning data.yml for ranked items missing posters...", Colors.CYAN)
-
-    from ruamel.yaml import YAML
     yaml = YAML()
     yaml.preserve_quotes = True
 
@@ -122,8 +181,10 @@ def main():
 
     cprint(f"\nFound {Colors.BOLD}{len(items_to_process)}{Colors.RESET} items to backfill.\n", Colors.YELLOW)
 
-    downloaded_count = 0
+    jellyfin_downloads = 0
     for category, title in items_to_process:
+        if category == 'music': continue
+
         cprint(f"Processing: {Colors.CYAN}{title} {Colors.GREEN}({category})", Colors.GREEN)
 
         img_url = get_jellyfin_poster(title)
@@ -138,13 +199,16 @@ def main():
         raw_filepath = category_dir / f"{safe_title}.jpg"
 
         if download_image(img_url, raw_filepath):
-            downloaded_count += 1
+            jellyfin_downloads += 1
             cprint(f"  ✓ Downloaded raw image to {raw_filepath}", Colors.GREEN)
         else:
             cprint(f"  [!] Download failed. Skipping.", Colors.RED)
 
-    if downloaded_count > 0:
-        cprint(f"\n✓ Downloaded {Colors.BOLD}{downloaded_count}{Colors.RESET} raw posters.", Colors.GREEN)
+    music_downloads = extract_local_music_covers(data)
+    total_downloads = jellyfin_downloads + music_downloads
+
+    if total_downloads > 0:
+        cprint(f"\n✓ Processed {Colors.BOLD}{total_downloads}{Colors.RESET} raw posters.", Colors.GREEN)
         cprint("✓ Invoking process_posters.py to optimize images and update data.yml...", Colors.CYAN)
 
         subprocess.run(['python', 'process_posters.py'])
