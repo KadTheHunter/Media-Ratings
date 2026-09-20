@@ -114,7 +114,7 @@ def main():
 
         # if game.get("playtime_forever", 0) == 0: continue
 
-        skip_pattern = re.compile(r'\b(?:demo|soundtrack|editor|server|sdk|mod kit|beta|soundpad)\b', re.IGNORECASE)
+        skip_pattern = re.compile(r'\b(?:demo|soundtrack|editor|server|sdk|mod kit|beta|playtest|public testing|soundpad|wallpaper engine|splitgate 2 - alpha)\b', re.IGNORECASE)
         if skip_pattern.search(title):
             cprint(f"Skipping: {title}", Colors.YELLOW)
             continue
