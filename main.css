@@ -333,6 +333,22 @@ h1, h2 {
     transform: translateY(0);
 }
 
+.modal-series {
+    font-size: 0.9rem;
+    color: #8b949e;
+    margin-bottom: 12px;
+    font-style: italic;
+    text-align: center;
+}
+.modal-series .series-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+.modal-series .series-link:hover {
+    text-decoration: underline;
+}
+
 #modalReview {
     overflow-y: auto;
     flex: 1;

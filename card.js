@@ -102,11 +102,11 @@ function createCard(item, index = 0, eagerThreshold = 8) {
     card.onkeydown = (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault(); // Prevents page scroll when pressing Space
-            openModal(item.title, item.review);
+            openModal(item);
         }
     };
 
-    card.onclick = () => openModal(item.title, item.review);
+    card.onclick = () => openModal(item);
     return card;
 }
 
@@ -282,12 +282,13 @@ function setupSearch() {
         }
         window.history.replaceState({}, '', url);
 
-        const rMatch = searchTerm.match(/(?:^|\s)r:(\S+)/);
-        const mMatch = searchTerm.match(/(?:^|\s)m:(\S+)/);
+        const rMatch = searchTerm.match(/(?:^|\s)r:(.*?)(?=\s+[rm]:|$)/);
+        const mMatch = searchTerm.match(/(?:^|\s)m:(.*?)(?=\s+[rm]:|$)/);
 
         let plainTerm = searchTerm
-            .replace(/(?:^|\s)r:\S*/g, ' ')
-            .replace(/(?:^|\s)m:\S*/g, ' ')
+            .replace(/(?:^|\s)r:.*?(?=\s+[rm]:|$)/g, ' ')
+            .replace(/(?:^|\s)m:.*?(?=\s+[rm]:|$)/g, ' ')
+            .replace(/\s+/g, ' ')
             .trim();
 
         tierGrids.forEach(grid => {
@@ -313,12 +314,12 @@ function setupSearch() {
                     let plainMatches = true;
 
                     if (hasR) {
-                        const rTerm = rMatch[1].toLowerCase();
+                        const rTerm = rMatch[1].trim().replace(/^["']|["']$/g, '').toLowerCase();
                         rMatches = review.includes(rTerm);
                     }
 
                     if (hasM) {
-                        const mTerm = mMatch[1].toLowerCase();
+                        const mTerm = mMatch[1].trim().replace(/^["']|["']$/g, '').toLowerCase();
                         mMatches = checkMetadataMatch(itemData, mTerm);
                     }
 
@@ -441,7 +442,7 @@ function highlightItemFromURL() {
     }
 
     if (matchedItem) {
-        openModal(matchedItem.title, matchedItem.review);
+        openModal(matchedItem);
     }
 }
 
@@ -528,7 +529,7 @@ if (surpriseBtn) {
         if (goodItems.length === 0) return;
 
         const randomItem = goodItems[Math.floor(Math.random() * goodItems.length)];
-        openModal(randomItem.title, randomItem.review);
+        openModal(randomItem);
     });
 }
 
@@ -536,29 +537,52 @@ if (surpriseBtn) {
 
 // ==================== MODAL ====================
 const modal = document.getElementById('reviewModal');
-const modalTitle = document.getElementById('modalTitle');
-const modalReview = document.getElementById('modalReview');
 const originalDocumentTitle = document.title;
 const closeBtn = document.querySelector('.close');
 
 /**
  * Opens the review modal and populates it with data.
- * @param {string} title - The title of the media
- * @param {string} review - The review text
+ * @param {Object} item - The media data object
  * @returns {void}
  */
-function openModal(title, review) {
-    modalTitle.textContent = title + ' Review';
-    modalReview.innerHTML = review.replace(/\n/g, '<br>');
+function openModal(item) {
+    const modal = document.getElementById('reviewModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalReview = document.getElementById('modalReview');
+
+    modalTitle.textContent = item.title + ' Review';
+    modalReview.innerHTML = item.review.replace(/\n/g, '<br>');
+
+    const modalSeries = document.getElementById('modalSeries');
+    if (modalSeries) {
+        if (item.series) {
+            const orderText = item.series_order ? ` (#${item.series_order})` : '';
+            const safeSeries = item.series.replace(/'/g, "\\'");
+            modalSeries.innerHTML = `Part of the <a href="#" class="series-link" onclick="searchBySeries('${safeSeries}')">${item.series}</a> series${orderText}`;
+            modalSeries.style.display = 'block';
+        } else {
+            modalSeries.style.display = 'none';
+        }
+    }
+
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    document.title = `${title} Review | Kad's Media Ratings`;
+    document.title = `${item.title} Review | Kad's Media Ratings`;
 
     const url = new URL(window.location);
-    url.searchParams.set('item', title);
+    url.searchParams.set('item', item.title);
     window.history.replaceState({}, '', url);
 
     setTimeout(() => { modal.classList.add('show'); }, 10);
+}
+
+function searchBySeries(seriesName) {
+    closeModal();
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.value = `m:${seriesName}`;
+        searchInput.dispatchEvent(new Event('input'));
+    }
 }
 
 /**
