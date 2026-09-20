@@ -137,7 +137,7 @@ def main():
         data["videogames"].append(new_entry)
         existing_titles.add(title_check)
         added_count += 1
-        cprint(f"Added: {Colors.CYAN}{title}", Colors.GREEN)
+        cprint(f"Added: {Colors.CYAN}{clean_title}", Colors.GREEN)
 
     if added_count > 0:
         cprint(f"\n✓ Added {Colors.BOLD}{added_count}{Colors.RESET} new games. Saving...", Colors.GREEN)
