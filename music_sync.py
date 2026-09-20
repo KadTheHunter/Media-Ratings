@@ -100,8 +100,7 @@ def main():
                 "rating": DoubleQuotedScalarString("0"),
                 "review": LiteralScalarString("TBA\n"),
                 "poster": "assets/images/no-poster.svg",
-                "tier": "unranked",
-                "tags": []
+                "tier": "unranked"
             }
 
             data["music"].append(new_entry)
